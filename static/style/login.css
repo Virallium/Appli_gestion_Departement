@@ -110,30 +110,7 @@
     -ms-border-radius: var(--borderadius-btn);
     -o-border-radius: var(--borderadius-btn);
 }
-.first{
-    position: absolute;
-    top: 35%;
-    right: 40px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: var(--primary-color);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-}
-.second{
-    position: absolute;
-    top: 54%;
-    right: 40px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: var(--primary-color);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-}
+
   button{
     width: 100%;
     padding: .5em 0;

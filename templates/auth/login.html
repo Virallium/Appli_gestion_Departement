@@ -8,12 +8,11 @@
             <form action="">
                 <label for="name" id="name">Nom d'utilisateur</label><br>
                 <input type="text" id="name" name="name" required>
-                <i class="fa-solid fa-user first"></i>
                 <br>
                 <label for="password" id="password">Mot de passe</label>
                 <br>
                 <input type="password" id="password" name="password" required>
-                <i class="fa-solid fa-lock second"></i>
+
                 <br>
                 <button type="submit">Se connecter</button><br>
                 <p>Veuillez compléter vos informations de connexion <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "register" %}" class="pas_de_compte">pas de compte?</a></span></p>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/politique.css' %}">{% endblock csslink %}
+{% block header %}
+    <header>
+        <nav>
+            <div class="btnretour"></div>
+            <p>Politique de Confidentialité</p>
+        </nav>
+        <img src="{% static 'photos/logo.jpg' %}" alt="logo" width="90px">
+        <h1>Politique de Confidentialité</h1>
+        <h3>Découvrir la politique</h3>
+        <details>
+            <summary>
+                Qu'est-ce que la Politique de Confidentialité et que couvre-t-elle?
+            </summary>
+            <p>
+                <Strong>En théorie</Strong>
+            </p>
+            <ul>
+                <li>La Politique de Confidentialité du Cénacle explique comment nous recueillons, utilisons et partageons vos informations. Elle décrit également la durée de conservation de vos informations et la manière dont nous les protégeons au moment du transfert.</li>
+                <li>La Politique de Confidentialité vous permet également de connaître vos droits.</li>
+                <li></li>
+            </ul>
+        </details>
+        <details>
+            <summary>
+                Quelles informations recueillons-nous?
+            </summary>
+            <p><strong>Au sens du terme</strong><br> La présente politique énumère les types d'informations que nou recueillons. Voici certains des plus importants. Nous recueillons:</p>
+            <ul>
+                <li>Les informations que vous nous donner lorsque vous vous enregistrés et entrez votre nom, post-nom, prenom, numéro de telphone, mot de passe, l'adresse mail, l'adresse</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </details>
+    </header>
+{% endblock header %}
