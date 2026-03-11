@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/register.css' %}">{% endblock csslink %}
+{% block header %}
+    <section class="login">
+        <div class="container-login">
+            <h1>Création compte</h1>
+            <form action="">
+                <label for="nomUt" id="name">Nom d'utilisateur</label>
+                <input type="text" id="name" name="nomUt" required>
+                
+                <label for="name" id="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="postname" id="postname">Post-Nom</label>
+                <input type="text" id="postname" name="postname" required>
+                
+                <label for="pren" id="pren">Prénom</label>
+                <input type="text" id="pren" name="pren" required>
+                
+                <label for="pren" id="num">Tel</label>
+                <input type="tel" id="num" name="num" required>
+                
+                <label for="mail" id="mail">Email</label>
+                <input type="email" id="mail" name="mail" required>
+                
+                <label for="password" id="password">Mot de passe</label>
+                
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">S'enregistrer</button><br><br>
+                <p>Veuillez compléter vos informations de connexion <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p>
+            </form>
+        </div>
+    </section>
+{% endblock header %}
+{% block footer %}
+    <footer class="footer-content">
+        <div class="logo">
+            <img src="{% static 'photos/logo.jpg' %}" alt="logo" width="50px">
+        </div>
+        <div class="contact-info">
+            <h3>Contactez-nous</h3>
+            <p><i class="fas fa-phone"></i> +243 123 456 789</p>
+            <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
+        </div>
+    </footer>
+{% endblock footer %}
+

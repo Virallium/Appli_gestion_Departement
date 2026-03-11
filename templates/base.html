@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
+    <meta name="keywords" content="cénacle, département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="author" content="Cénacle">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="geo.region" content="CD-KN">
+    <meta name="geo.placename" content="Kinshasa">
+    <meta property="og:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
+    <meta property="og:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
+    <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
+    {% block csslink %}<link rel="stylesheet" href="{% static 'style/style.css' %}">{% endblock csslink %}
+    <script src="{% static 'js/style.js' %}" defer></script>
+    <link rel="shortcut icon" href="{% static 'photos/logo.jpg' %}" type="image">
+    <title>Connexion|Utilisateurs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Pourquoi avoir devenir disciple de jesus christ est-il important?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Devenir disciple de Jésus-Christ est important pour plusieurs raisons. Tout d'abord, cela permet de suivre les enseignements de Jésus et de vivre selon ses principes, ce qui peut apporter une paix intérieure et une direction dans la vie. De plus, être disciple de Jésus signifie faire partie d'une communauté de croyants qui se soutiennent mutuellement dans leur foi. Enfin, cela offre l'espoir de la vie éternelle et la promesse d'une relation personnelle avec Dieu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les tarifs pour les formations proposées par le département du cénacle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "il n'ya aucun tarif pour les formations proposées par le département du cénacle, elles sont gratuites et ouvertes à tous ceux qui souhaitent approfondir leur foi et leur connaissance de la Bible. Le département du cénacle vise à offrir des enseignements accessibles à tous, sans distinction de statut social ou économique."
+            }
+          }
+        ]
+      }
+    </script>
+</head>
+<body>
+    <main>
+        {% block header %}
+            <header>
+                <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo du département" width="100px"></div>
+                <nav>
+                    <ul>
+                        <li><a href="{% url "Accueil" %}">Accueil</a></li>
+                        <li><a href="{% url "Communaute" %}">Communauté</a></li>
+                        <li><a href="{% url "Activites" %}">Activités</a></li>
+                        <li><a href="{% url "Contact" %}">Contact</a></li>
+                    </ul>
+                    <button type="button">Deconnexion</button>
+                </nav>
+            </header>
+        {% endblock header %}
+        {% block sections %}
+        
+        {% endblock sections %}
+        {% block footer %}
+            <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Contactez-nous</h3>
+                        <p><i class="fas fa-phone"></i> +243 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+        {% endblock footer %}
+
+
+    </main>
+</body>
+</html>
