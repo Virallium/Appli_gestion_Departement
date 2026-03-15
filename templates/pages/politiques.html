@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/politique.css' %}">{% endblock csslink %}
-{% block header %}
+{% block title%}Politique{% endblock title %}
+{% block headercontent %}
     <header>
         <nav>
             <div class="btnretour"></div>
-            <p>Politique de Confidentialité</p>
         </nav>
-        <img src="{% static 'photos/logo.jpg' %}" alt="logo" width="90px">
         <h1>Politique de Confidentialité</h1>
         <h3>Découvrir la politique</h3>
         <details>
@@ -38,7 +37,7 @@
                 Comment partageons-nous vos informations
             </Summary>
             <p>
-
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint quasi cupiditate illum? Quidem ducimus voluptatem libero. Fuga nostrum, deserunt autem ex saepe vitae, architecto, quam magni facilis quis minima? Magnam!
             </p>
         </details>
         <details>
@@ -56,7 +55,7 @@
         </details>
 
     </header>
-{% endblock header %}
+{% endblock headercontent %}
 {% block sections %}
     <h4>Autres politiques</h4>
     <a href="">Conditions de service</a>

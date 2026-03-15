@@ -19,9 +19,10 @@
     <meta name="twitter:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
     <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
     {% block csslink %}<link rel="stylesheet" href="{% static 'style/style.css' %}">{% endblock csslink %}
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
     <script src="{% static 'js/style.js' %}" defer></script>
     <link rel="shortcut icon" href="{% static 'photos/logo.jpg' %}" type="image">
-    <title>Connexion|Utilisateurs</title>
+    <title>{% block title%}Connexion|Utilisateurs{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,20 +54,24 @@
 </head>
 <body>
     <main>
-        {% block header %}
             <header>
                 <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo du département" width="100px"></div>
                 <nav>
-                    <ul>
-                        <li><a href="{% url "Accueil" %}">Accueil</a></li>
-                        <li><a href="{% url "Communaute" %}">Communauté</a></li>
-                        <li><a href="{% url "Activites" %}">Activités</a></li>
-                        <li><a href="{% url "Contact" %}">Contact</a></li>
-                    </ul>
-                    <button type="button">Deconnexion</button>
+                    {% block navcontent %}
+                        <ul>
+                            <li><a href="{% url "Accueil" %}">Accueil</a></li>
+                            <li><a href="{% url "Communaute" %}">Communauté</a></li>
+                            <li><a href="{% url "Activites" %}">Activités</a></li>
+                            <li><a href="{% url "Contact" %}">Contact</a></li>
+                        </ul>
+                    <button class="button">Déconnexion</button>
+                    <i class="fa-solid fa-bars" id="menu"></i>
+                    {% endblock navcontent %}
                 </nav>
             </header>
-        {% endblock header %}
+            {% block headercontent %}
+            
+            {% endblock headercontent %}
         {% block sections %}
         
         {% endblock sections %}
@@ -76,7 +81,7 @@
                     <div class="contact-info">
                         <h3>Contactez-nous</h3>
                         <p><i class="fas fa-phone"></i> +243 123 456 789</p>
-                        <p><i class="fas fa-envelope"></i>
+                        <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
                     </div>
                 </div>
         {% endblock footer %}

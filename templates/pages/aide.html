@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Aide{% endblock title %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/aide.css' %}">{% endblock csslink %}
+{% block sections %}
+<section class="aide">
+    <div class="rgba"></div>
+    <h1>Foire aux questions (FAQ)</h1>
+    <div class="faq">
+        <div class="question">
+            <h2>Pourquoi avoir devenir disciple de jesus christ est-il important?</h2>
+            <p>Devenir disciple de Jésus-Christ est important pour plusieurs raisons. Tout d'abord, cela permet de suivre les enseignements de Jésus et de vivre selon ses principes, ce qui peut apporter une paix intérieure et une direction dans la vie. De plus, être disciple de Jésus signifie faire partie d'une communauté de croyants qui se soutiennent mutuellement dans leur foi. Enfin, cela offre l'espoir de la vie éternelle et la promesse d'une relation personnelle avec Dieu.</p>
+        </div>
+        <div class="question">
+            <h2>Quels sont les tarifs pour les formations proposées par le département du cénacle?</h2>
+            <p>il n'ya aucun tarif pour les formations proposées par le département du cénacle, elles sont gratuites et ouvertes à tous ceux qui souhaitent approfondir leur foi et leur connaissance de la Bible. Le département du cénacle vise à offrir des enseignements accessibles à tous, sans distinction de statut social ou économique.</p>
+        </div>
+    </div>
+    <summary>
+        <h2>Vous avez d'autres questions?</h2>
+        <p>N'hésitez pas à nous contacter pour toute question supplémentaire ou pour obtenir de l'aide. Nous sommes là pour vous aider et répondre à vos préoccupations.</p>
+        de contact : <a href="{% url "Contact" %}">Contactez-nous</a>
+    </summary>
+</section>
+{% endblock sections %}

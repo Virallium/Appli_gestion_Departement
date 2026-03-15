@@ -7,5 +7,6 @@ urlpatterns = [
     path('Activites/',views.Activites, name='Activites'),
     path('communaute/', views.Communaute, name='Communaute'),
     path('Contact/', views.Contact, name='Contact'),
-    path('Politiques/',views.Politiques, name='Politiques' )
+    path('Politiques/',views.Politiques, name='Politiques' ),
+    path('Aide/', views.aide, name='Aide'),
 ]

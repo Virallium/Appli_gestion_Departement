@@ -1,25 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/login.css' %}">{% endblock csslink %}
-{% block header %}
-    <section class="login">
+{% block navcontent %}
+    <ul class="rx">
+        <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <a href="{% url "Aide" %}" class="button">Aide</a>
+{% endblock navcontent %}
+
+
+{% block sections %}
+<section class="login">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
+        navigation="false" pagination-dynamic-bullets="true" autoplay="true" autoplay-delay="4000">
+            <swiper-slide>
+            <img src="{% static 'photos/img1.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img2.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img3.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img4.jpg' %} " />
+            </swiper-slide>
+        </swiper-container>
         <div class="container-login">
             <h1>Connexion</h1>
-            <form action="">
-                <label for="name" id="name">Nom d'utilisateur</label><br>
-                <input type="text" id="name" name="name" required>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="username">Nom d'utilisateur</label><br>
+                <input type="text" id="username" name="username" required>
                 <br>
-                <label for="password" id="password">Mot de passe</label>
+                <label for="password">Mot de passe</label>
                 <br>
                 <input type="password" id="password" name="password" required>
 
                 <br>
-                <button type="submit">Se connecter</button><br>
+                <button type="submit" class="btnconnect">Se connecter</button><br>
                 <p>Veuillez compléter vos informations de connexion <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "register" %}" class="pas_de_compte">pas de compte?</a></span></p>
             </form>
         </div>
     </section>
-{% endblock header %}
+{% endblock sections %}
+
 {% block footer %}
     <footer class="footer-content">
         <div class="logo">

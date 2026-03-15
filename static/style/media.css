@@ -1,0 +1,37 @@
+ :root{
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --txt-color:#000;
+    --borderadius-btn:15px;
+    padding: min(1.5rem,10%);
+ }
+@media(max-width:456px){
+    .rx{
+        flex-direction: column;
+        gap:.5rem;
+        position: fixed;
+        bottom: 3rem;
+        right:.6rem;
+        background:var(--primary-color) ;
+        padding:.5rem;
+        border-radius: var(--borderadius-btn);
+        -webkit-border-radius: var(--borderadius-btn);
+        -moz-border-radius: var(--borderadius-btn);
+        -ms-border-radius: var(--borderadius-btn);
+        -o-border-radius: var(--borderadius-btn);
+}
+}
+@media(max-width:250px){
+    *{
+        font-size: .7rem;
+    }
+    body{
+        overflow-x: visible;
+    }
+}

@@ -1,11 +1,38 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
 {% load static %}
-{% block csslink %}<link rel="stylesheet" href="{% static 'style/register.css' %}">{% endblock csslink %}
-{% block header %}
-    <section class="login">
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/login.css' %}">{% endblock csslink %}
+{% block title%}Création de compte{% endblock title %}
+{% block navcontent %}
+    <ul class="rx">
+        <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <a href="{% url "Aide" %}" class="button">Aide</a>
+{% endblock navcontent %}
+
+
+{% block sections %}
+<section class="login">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
+        navigation="false" pagination-dynamic-bullets="true" autoplay="true" autoplay-delay="4000">
+            <swiper-slide>
+            <img src="{% static 'photos/img1.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img2.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img3.jpg' %} " />
+            </swiper-slide>
+            <swiper-slide>
+            <img src="{% static 'photos/img4.jpg' %} " />
+            </swiper-slide>
+        </swiper-container>
         <div class="container-login">
-            <h1>Création compte</h1>
-            <form action="">                
+            <h1>Enregistrement</h1>
+             <form action="" method="POST"> 
+                {% csrf_token %}               
                 <label for="name" id="name">Nom Utilisateur</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -15,29 +42,30 @@
                 <label for="pren" id="pren">Prénom</label>
                 <input type="text" id="pren" name="pren" required>
                 
-                <label for="pren" id="num">Tel</label>
+                <label for="num">Tel</label>
                 <input type="tel" id="num" name="num" required>
                 
-                <label for="mail" id="mail">Email</label>
+                <label for="mail">Email</label>
                 <input type="email" id="mail" name="mail" required>
 
-                <label for="Ad" id="Ad">Adresse</label>
-                <input type="Ad" id="Ad" name="Ad" required>
+                <label for="Ad">Adresse</label>
+                <input type="text" id="Ad" name="Ad" required>
                 
                 <label for="password" id="password">Mot de passe</label>
                 
                 <input type="password" id="password" name="password" required>
-                
-                <button type="submit">S'enregistrer</button><br><br>
-                <p>Veuillez compléter vos informations de connexion <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p>
+            
+                <button type="submit" class="btnconnect">S'enregistrer</button><br><br>
+                <p>Veuillez enregistrer vos informations <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p>
             </form>
         </div>
     </section>
-{% endblock header %}
+{% endblock sections %}
+
 {% block footer %}
     <footer class="footer-content">
         <div class="logo">
-            <img src="{% static 'photos/logo.jpg' %}" alt="logo" width="50px">
+            <img src="{% static 'photos/logo.jpg' %}" alt="logo" width="80px">
         </div>
         <div class="contact-info">
             <h3>Contactez-nous</h3>
