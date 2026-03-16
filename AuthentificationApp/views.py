@@ -48,3 +48,5 @@ def Politiques(request):
     return render(request,'pages/politiques.html')
 def aide(request):
     return render(request,'pages/aide.html')
+def voirplus(request):
+    return render(request,'pages/voirplus.html')

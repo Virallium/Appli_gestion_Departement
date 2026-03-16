@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
     {% block csslink %}<link rel="stylesheet" href="{% static 'style/style.css' %}">{% endblock csslink %}
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
-    <script src="{% static 'js/style.js' %}" defer></script>
+    {% block jsstyle %}<script src="{% static 'js/style.js' %}" defer></script>{% endblock jsstyle %}
     <link rel="shortcut icon" href="{% static 'photos/logo.jpg' %}" type="image">
     <title>{% block title%}Connexion|Utilisateurs{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -54,12 +54,13 @@
 </head>
 <body>
     <main>
+            <div class="rgba"></div>
             <header>
                 <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo du département" width="100px"></div>
                 <nav>
                     {% block navcontent %}
                         <ul>
-                            <li><a href="{% url "Accueil" %}">Accueil</a></li>
+                            <li><a href="{% url "Accueil" %}" class="activelink">Accueil</a></li>
                             <li><a href="{% url "Communaute" %}">Communauté</a></li>
                             <li><a href="{% url "Activites" %}">Activités</a></li>
                             <li><a href="{% url "Contact" %}">Contact</a></li>

@@ -25,6 +25,26 @@
     color: var(--txt-color);
     width: 100%;
 }
+body::-webkit-scrollbar-thumb{
+   background: var(--primary-color);
+   border-radius: 10%;
+   -webkit-border-radius: 10%;
+   -moz-border-radius: 10%;
+   -ms-border-radius: 10%;
+   -o-border-radius: 10%;
+   transition: .9s;
+   -webkit-transition: .9s;
+   -moz-transition: .9s;
+   -ms-transition: .9s;
+   -o-transition: .9s;
+   cursor: pointer;
+}
+body::-webkit-scrollbar-thumb:hover{
+   background: var(--info-color);
+}
+body::-webkit-scrollbar-track{
+   background: var(--light-color);
+}
 swiper-container {
       width: 100%;
       height: 100%;

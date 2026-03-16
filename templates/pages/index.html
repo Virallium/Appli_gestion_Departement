@@ -3,9 +3,184 @@
 {% block title%}Accueil{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/style.css' %}">{% endblock csslink %}
 {% block sections %}
-<div class="pres">
-    <h1>Construisez votre foi par une connexion <br>Profonde</h1>
-    <br>
-    <p>rejoignez nous </p>
-</div>
+    <section class='contents'>
+        <div class="pres">
+            <h1>Construisez votre foi par une connexion <br>Profonde</h1>
+            <br>
+            <p>rejoignez nous </p>
+            <br>
+            <div class="btns">
+                <a href=""><span><i class="fa-solid fa-user-plus"></i></span>Voir membres</a>
+                <a href="">Evenements à venir</a>
+            </div>
+        </div>
+        <div class="Activites">
+            <div class="title">
+                <div class="left">
+                    <h2>Nos Activité</h2>
+                    <p>Des moments d'enseignement pour approfondir la parole de Dieu et fortifier votre foi.</p>
+                </div>
+                <a href="{% url "voirplus" %}">Voir plus <span><i class="fa-solid fa-angles-right"></i></span></a>
+            </div>
+            <div class="boxs">
+                <div class="box">
+                    <img src="{% static 'photos/img1.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img2.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img3.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img4.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img5.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img6.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img7.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img8.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img9.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'photos/img10.jpg' %}" alt="Activité">
+                    <h3>Formation</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
+                    <div class="down">
+                        <a href="">Date</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> Nombre Membres</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="avis">
+            <h2>Avis des Membres</h2>
+            <p class="Avistxt">Decouvrez comment Le Cénacle a inspiré, impacté les membres du département.</p>
+            <div class="aviscontent">
+                <div class="avisbox">
+                    <p>Le Cénacle m’a permis de renforcer ma relation avec Dieu et de rencontrer une famille spirituelle incroyable.</p>
+                    <i class="fa-solid fa-quote-right"></i>
+                    <br>
+                    <div class="icon">
+                        <img src="{% static 'photos/avis1.jpg' %}" alt="Avis" width="70px">
+                        <div class="identite">
+                            <p><strong> Sr. Emmanuella</strong></p>
+                            <p>Membre</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="avisbox">
+                    <p>Participer aux activités du Cénacle m’a permis de rencontrer des personnes formidables et de renforcer ma foi chaque jour.</p>
+                    <i class="fa-solid fa-quote-right"></i>
+                    <br>
+                    <div class="icon">
+                        <img src="{% static 'photos/avis2.jpg' %}" alt="Avis" width="70px">
+                        <div class="identite">
+                            <p><strong>Fr. Emmanuel</strong></p>
+                            <p>Membre</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="avisbox">
+                    <p>Le Cénacle est pour moi une vraie famille spirituelle. Les moments de partage et de prière m'ont beaucoup aidé dans ma vie.</p>
+                    <i class="fa-solid fa-quote-right"></i>
+                    <br>
+                    <div class="icon">
+                        <img src="{% static 'photos/avis3.jpg' %}" alt="Avis" width="70px">
+                        <div class="identite">
+                            <p><strong>Sr. Judith</strong></p>
+                            <p>Membre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="exclusivemembers">
+            <h2>Rencontrez nos Membres </h2>
+            <div class="members">
+                <div class="circle">
+                    <img src="{% static 'photos/membr1.jpg' %}" alt="membre" width="40px">
+                    <p>Sarah</p>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'photos/membr2.jpg' %}" alt="membre" width="40px">
+                    <p>Anne</p>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'photos/membr3.jpg' %}" alt="membre" width="40px">
+                    <p>Jean</p>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'photos/membr4.jpg' %}" alt="membre" width="40px">
+                    <p>Amic</p>
+                </div>
+                <div class="plus">
+                    +
+                </div>
+            </div>
+
+        </div>
+    </section>
 {% endblock sections %}

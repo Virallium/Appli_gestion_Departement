@@ -1,1 +1,50 @@
-{% extends "base.html" %}
+{% block title%}{% endblock title %}
+{% load static %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/communaute.css' %}">{% endblock csslink %}
+{% block navcontent %}
+    <ul>
+        <li><a href="{% url "Accueil" %}">Accueil</a></li>
+        <li><a href="{% url "Communaute" %}">Communauté</a></li>
+        <li><a href="{% url "Activites" %}" class='activelink'>Activités</a></li>
+        <li><a href="{% url "Contact" %}" class='activelink'>Contact</a></li>
+    </ul>
+    <button class="button">Déconnexion</button>
+    <i class="fa-solid fa-bars" id="menu"></i>
+{% endblock navcontent %}
+{% block headercontent %}
+    <div class="contact">
+        <h1>Contactez notre département</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quis architecto accusamus ullam consectetur. Itaque repellendus assumenda beatae, cumque quia et, deleniti quam officia laborum nisi in quos, odio ab!</p>
+        <div class="contactbox">
+            <form action="">
+                {% csrf_token %} 
+                <h2>Envoyez un message</h2>              
+                <label for="name" id="name">Nom Utilisateur</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="postname" id="postname">Post-Nom</label>
+                <input type="text" id="postname" name="postname" required>
+                
+                <label for="pren" id="pren">Prénom</label>
+                <input type="text" id="pren" name="pren" required>
+                
+                <label for="num">Tel</label>
+                <input type="tel" id="num" name="num" required>
+                
+                <label for="mail">Email</label>
+                <input type="email" id="mail" name="mail" required>
+
+                <label for="Ad">Adresse</label>
+                <input type="text" id="Ad" name="Ad" required>
+                
+                <label for="password" id="password">Mot de passe</label>
+                
+                <input type="password" id="password" name="password" required>
+            
+                <button type="submit" class="btnconnect">S'enregistrer</button><br><br>
+                <p>Veuillez enregistrer vos informations <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p
+            </form>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.463366589898!2d15.306328099999998!3d-4.3237124999999965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a3130fe066a8b%3A0xa735f3f04f7f009e!2sM8G4%2BGG8%2C%20Kinshasa!5e0!3m2!1sen!2scd!4v1773617938167!5m2!1sen!2scd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+{% endblock headercontent %}
