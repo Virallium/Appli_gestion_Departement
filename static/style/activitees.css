@@ -135,35 +135,10 @@ li a:hover::before{
     border-radius: var(--borderadius-btn);
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1); 
 }
-swiper-slide img{
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    background-position: center;
-    background-size: cover;
+.content{
+    padding-top: 6rem;
 }
-.mySwiper{
-    width: 100%;
-    height: 100vh;
-}
-.text{
-    padding: min(1rem,9%);
-    width: 100%;
-    padding: 1rem;
-    background: var(--light-color);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-    border-radius: var(--borderadius-btn);
-    -webkit-border-radius: var(--borderadius-btn);
-    -moz-border-radius: var(--borderadius-btn);
-    -ms-border-radius: var(--borderadius-btn);
-    -o-border-radius: var(--borderadius-btn);
-    margin-top: .5rem;
-}
-.text h2{
-    color: var(--primary-color);
-    font-weight: 550;
 
-}
 .ouvriers{
     width: 100%;
     height: 270px;

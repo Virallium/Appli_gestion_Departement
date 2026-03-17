@@ -61,7 +61,15 @@ header{
     z-index:1000;
     top:0;
     left:0;
-    padding:.5rem;
+    padding:.3rem;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:1rem;
+
 }
 #menu{
     display:none;
@@ -77,13 +85,7 @@ header{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    gap:1rem;
-}
+
 ul{
     display:flex;
     flex-direction: row;
@@ -135,59 +137,88 @@ li a:hover::before{
     border-radius: var(--borderadius-btn);
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1); 
 }
-swiper-slide img{
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    background-position: center;
-    background-size: cover;
-}
-.mySwiper{
-    width: 100%;
-    height: 100vh;
+.contact{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    gap:.5rem;
+    place-items: center;
+    padding: 6rem 0 0 0;
 }
 .text{
     padding: min(1rem,9%);
     width: 100%;
-    padding: 1rem;
-    background: var(--light-color);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-    border-radius: var(--borderadius-btn);
-    -webkit-border-radius: var(--borderadius-btn);
-    -moz-border-radius: var(--borderadius-btn);
-    -ms-border-radius: var(--borderadius-btn);
-    -o-border-radius: var(--borderadius-btn);
-    margin-top: .5rem;
+    padding: .3rem;
 }
-.text h2{
-    color: var(--primary-color);
-    font-weight: 550;
-
-}
-.ouvriers{
+iframe{
     width: 100%;
-    height: 270px;
-    padding: 1rem .5rem;
-    background: var(--secondary-color);
-    margin-top: 2rem;
-    border-radius: var(--borderadius-btn);
-    -webkit-border-radius: var(--borderadius-btn);
-    -moz-border-radius: var(--borderadius-btn);
-    -ms-border-radius: var(--borderadius-btn);
-    -o-border-radius: var(--borderadius-btn);
 }
-.integrants{
-    background: var(--secondary-color);
+.contactbox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    padding: .5rem;
+    place-items: center;
+}
+
+form{
+    width: min(450px, 90%);
+    background: var(--light-color);
+    box-shadow: 4px 4px 9px rgba(0,0,0,0.5);
+    padding: min(2rem, 9%);
     border-radius: var(--borderadius-btn);
     -webkit-border-radius: var(--borderadius-btn);
     -moz-border-radius: var(--borderadius-btn);
     -ms-border-radius: var(--borderadius-btn);
     -o-border-radius: var(--borderadius-btn);
-    margin-top: 2rem;
-    padding: min(1.5rem,90%);
-    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    animation: translateAnimation 6s linear infinite alternate;
+    -webkit-animation: translateAnimation 6s linear infinite alternate;
+}
+@keyframes translateAnimation {
+    from{
+        transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
+}
+    to{
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        box-shadow: 3px 3px 14px rgba(0,0,0,0.5);
+}
+}
+.star{
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+}
+form h2{
+    text-align: center;
+    margin-bottom:1rem ;
+}
+form a:hover{
+    text-decoration: underline;
+}
+ input{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--dark-color);
+    border-radius: var(--borderadius-btn);
+    margin-bottom: 1rem;
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
 }
  footer{
+    margin-top: 1rem;
     width: 100%;
     height: 100%;
    display: flex;
@@ -205,7 +236,7 @@ footer a,footer p{
     #menu{
         display:block;
     }
-    nav ul{
+    ul{
         position: absolute;
         top: 100%;
         left: 0;
@@ -216,7 +247,7 @@ footer a,footer p{
         gap: 0;
         display:none;
     }
-    nav ul.active{
+     ul.active{
         display:flex;
         transition:  1s ease;
         -webkit-transition:  1s ease;
@@ -243,13 +274,5 @@ footer a,footer p{
         -ms-transition: all 0.9s ease;
         -o-transition: all 0.9s ease;
     }
-    .box{
-      width: 200px;
-    }
-    .members{
-      overflow: scroll;
-    }
-    .members::-webkit-scrollbar{
-      display: none;
-    }
+    
 }

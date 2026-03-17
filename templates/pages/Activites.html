@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title%}Activités{% endblock title %}
-{% block csslink %}<link rel="stylesheet" href="{% static 'style/communaute.css' %}">{% endblock csslink %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/Activitees.css' %}">{% endblock csslink %}
 {% block navcontent %}
     <ul>
         <li><a href="{% url "Accueil" %}" class="">Accueil</a></li>
@@ -12,3 +12,9 @@
     <button class="button">Déconnexion</button>
     <i class="fa-solid fa-bars" id="menu"></i>
 {% endblock navcontent %}
+
+{% block headercontent %}
+    <section class="content">
+        <h3>Nos Activités</h3>
+    </section>
+{% endblock headercontent %}
