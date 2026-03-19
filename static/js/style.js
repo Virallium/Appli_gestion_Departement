@@ -9,3 +9,9 @@ rgba.addEventListener('click',()=>{
     navList.classList.remove('active');
     rgba.classList.remove('active');
 })
+const skeletonAnimation=document.querySelectorAll('.skeleton')
+    skeletonAnimation.forEach(sk=>{
+        window.addEventListener("load", ()=>{
+        sk.classList.add("removeSkeleton")
+    })
+})

@@ -12,7 +12,12 @@ class Utilisateur(models.Model):
     def __str__(self):
         return f"{self.nomUt} {self.postnom} {self.prenom}"
 
-class profil(models.Model):
+class Profil(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     adresse=models.CharField(max_length=200, verbose_name='Adresse', default='51, Kisantu-Kinshasa, Selembao')
-    numero = models.CharField(max_length=20, verbose_name='Numéro de téléphone', default='0901717545')
+    numero = models.CharField(max_length=10, verbose_name='Numéro de téléphone', default='0901717545')
+    def __str__(self):
+        return self.user.username
+
+
+    

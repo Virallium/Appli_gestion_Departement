@@ -1,3 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Plus{% endblock title %}
+{% block title%}Formations{% endblock title %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/formation.css' %}">{% endblock csslink %}
+{% block sections %}
+    <div class="Activites">
+            <div class="title">
+                <div class="left">
+                    <h2>Nos Activité</h2>
+                    <p>Des moments d'enseignement pour approfondir la parole de Dieu et fortifier votre foi.</p>
+                </div>
+            </div>
+        <div class="boxs">
+            {% for formation in formations %}
+                <div class="box">
+                    <img src="{{formation.img.url}}" alt="Activité">
+                    <h3>{{formation.title}}</h3>
+                    <p>{{formation.description_de_la_formation}}</p>
+                    <div class="down">
+                        <a href="">{{formation.date}}</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> {{formation.nombre_participants}}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="empty">Aucune formation disponible.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock sections %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import profil
+from .models import Profil
 from django.contrib import messages
 from django.contrib.auth.models import User 
 from django.contrib.auth import authenticate, login, logout
@@ -16,7 +16,7 @@ def register_view(request):
         mon_Utilisateur.first_name=prenom
         mon_Utilisateur.last_name=postnom
         mon_Utilisateur.save()
-        profil.objects.create(user=mon_Utilisateur,adresse=Adresse,numero=telephone)
+        Profil.objects.create(user=mon_Utilisateur,adresse=Adresse,numero=telephone)
         messages.success(request,'Votre compte a été crée avec succèes')
         return redirect('login')
     return render(request, 'auth/register.html')
@@ -48,5 +48,3 @@ def Politiques(request):
     return render(request,'pages/politiques.html')
 def aide(request):
     return render(request,'pages/aide.html')
-def voirplus(request):
-    return render(request,'pages/voirplus.html')

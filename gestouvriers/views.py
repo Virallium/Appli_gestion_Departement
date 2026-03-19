@@ -1,4 +1,6 @@
 from django.shortcuts import render
-def ouviers_List(request):
-    return render(request, 'pages/index.html')
+from .models import formation
+def formations(request):
+    formations=formation.objects.all()
+    return render(request, 'pages/voirplus.html',{'formations':formations})
 # Create your views here.
