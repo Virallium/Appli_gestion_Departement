@@ -2,6 +2,16 @@
 {% load static %}
 {% block title%}Formations{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/formation.css' %}">{% endblock csslink %}
+{% block navcontent %}
+                        <ul>
+                            <li><a href="{% url "Accueil" %}">Accueil</a></li>
+                            <li><a href="{% url "Communaute" %}">Communauté</a></li>
+                            <li><a href="{% url "voirplus" %}" class="activelink">Activités</a></li>
+                            <li><a href="{% url "Contact" %}">Contact</a></li>
+                        </ul>
+                    <button class="button">Déconnexion</button>
+                    <i class="fa-solid fa-bars" id="menu"></i>
+                    {% endblock navcontent %}
 {% block sections %}
     <div class="Activites">
             <div class="title">
@@ -11,14 +21,14 @@
                 </div>
             </div>
         <div class="boxs">
-            {% for formation in formations %}
+            {% for activite in activites %}
                 <div class="box">
-                    <img src="{{formation.img.url}}" alt="Activité">
-                    <h3>{{formation.title}}</h3>
-                    <p>{{formation.description_de_la_formation}}</p>
+                    <img src="{{activite.img.url}}" alt="Activité">
+                    <h3 class="titre">{{activite.titre}}</h3>
+                    <h3>{{activite.description_de_la_formation}}</h3>
                     <div class="down">
-                        <a href="">{{formation.date}}</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> {{formation.nombre_participants}}</p>
+                        <a href="">{{activite.date}}</a>
+                        <p><span><i class="fa-solid fa-user"></i></span> {{activite.nombre_participants}}</p>
                     </div>
                 </div>
                 {% empty %}

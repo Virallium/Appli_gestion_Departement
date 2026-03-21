@@ -191,24 +191,31 @@ li a:hover::before{
 .title .left p{
    color: var(--secondary-color);
 }
+.titre{
+   color: var(--secondary-color);
+}
 .boxs{
    display:grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px,350px));
+   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
    place-items:center;
-   gap: 1rem;
+   gap: 1.4rem;
    width: 100%;
-   height: 100%;
 }
 
 .box{
    background: var(--light-color);
    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
    border-radius: var(--borderadius-btn);
-   padding: 1rem;
+   padding: min(1rem);
    flex-shrink: 0;
    display: flex;
    flex-direction:column ;
    gap: .4rem;
+   text-align: center;
+   width: 100%;
+   aspect-ratio: 1/1;
+   height: 450px;
+   max-width: 300px;
    text-align: center;
 }
 .down{

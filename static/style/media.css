@@ -27,7 +27,7 @@
         -o-border-radius: var(--borderadius-btn);
 }
 }
-@media(max-width:250px){
+@media(max-width:316px){
     *{
         font-size: .7rem;
     }
