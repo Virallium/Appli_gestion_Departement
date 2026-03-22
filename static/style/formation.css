@@ -195,11 +195,12 @@ li a:hover::before{
    color: var(--secondary-color);
 }
 .boxs{
-   display:grid;
-   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-   place-items:center;
-   gap: 1.4rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+   gap: 1rem;
    width: 100%;
+   padding: 1em;
+   place-items: center;
 }
 
 .box{
@@ -207,15 +208,13 @@ li a:hover::before{
    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
    border-radius: var(--borderadius-btn);
    padding: min(1rem);
-   flex-shrink: 0;
    display: flex;
    flex-direction:column ;
    gap: .4rem;
    text-align: center;
    width: 100%;
    aspect-ratio: 1/1;
-   height: 450px;
-   max-width: 300px;
+   max-width: 250px;
    text-align: center;
 }
 .down{

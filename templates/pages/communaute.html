@@ -13,32 +13,40 @@
     <i class="fa-solid fa-bars" id="menu"></i>
 {% endblock navcontent %}
 {% block sections %}
-        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
-            navigation="false" autoplay="true" autoplay-delay="4500"  pagination-type="progressbar">
-            <swiper-slide>
-            <img src="{% static 'photos/communaute.jpg' %}" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </swiper-slide>
-        </swiper-container>
-        <div class="text">
-                    <h2>Service de montage vidéo</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat alias veniam, cum numquam nulla eligendi! Repellat asperiores dicta totam qui! Officiis sequi quibusdam inventore facere ratione corporis nostrum molestiae laborum.</p>
+    <div class="contents">
+        <div class="presentation">
+            <h1>La communauté du cénacle</h1>
+            <h2>Souhaitiez-vous nous rejoindre?</h2>
         </div>
-
-    <div class="ouvriers">
-        <h2>Ouvriers</h2>
-    </div>
-    <div class="integrants">
-        <h2>Intégrants</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, quisquam alias voluptas aperiam incidunt facilis! Distinctio provident reiciendis porro placeat nesciunt, nulla quae, perferendis, in molestias quaerat corrupti enim. Quibusdam.
+        <div class="section_bibli">
+            <div class="left">
+                <p>Actes 2:46</p>
+                <h2>La Parole de Dieu nous dit ceci:</h2>
+                <h3>Ils étaient chaque jour tous ensemble assidus au temple, ils rompaient le pain dans les maisons, et prenaient leur nourriture avec joie et simplicité de coeur,</h3>
+            </div>
+            <div class="right">
+                <div class="circle"><i class="fa-solid fa-fire"></i></div>
+                <div class="circle"><i class="fa-solid fa-book-bible"></i></div>
+                <div class="circle"><i class="fa-regular fa-face-grin-beam"></i></div>
+                <img src="{% static 'photos/bible1.png' %}" alt="bible" width="300px">
+            </div>
+        </div>
+        <div class="communaute">
+                {% for membre in membres  %}
+                    <div class="each_member">
+                        <div class="photo">
+                            <img src="{{membre.photo.url}}" alt="photo_membre" width="50px">
+                        </div>
+                        <div class="text">
+                            <h3>{{membre.nom_membre}}</h3>
+                            <h3>{{membre.postnom_membre}}</h3>
+                            <p>{{membre.statut}}</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h2 class="empty">Aucun membre n'a été ajouté</h2>
+                {% endfor %}
+        </div>
     </div>
 {% endblock sections %}
 

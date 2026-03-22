@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Formations{% endblock title %}
+{% block title%}Activités{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/formation.css' %}">{% endblock csslink %}
 {% block navcontent %}
                         <ul>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 {% empty %}
-                <p class="empty">Aucune formation disponible.</p>
+                <h2 class="empty">Aucune Activié n'est disponible.</h2>
             {% endfor %}
         </div>
 
