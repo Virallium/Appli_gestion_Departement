@@ -310,6 +310,34 @@ li a:hover::before{
     color: var(--light-color);
     letter-spacing: 1px;
 }
+.liste_membres{
+    text-align: center;
+    color: var(--dark-color);
+    position: relative;
+}
+.liste_membres::before{
+    content: '';
+    position: absolute;
+    top: .3rem;
+    left: 0;
+    transform: translate(50%);
+    background: var(--info-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transform: translate(50%);
+    -moz-transform: translate(50%);
+    -ms-transform: translate(50%);
+    -o-transform: translate(50%);
+    box-shadow: 5px 8px 15px var(--info-color);
+}
 
  footer{
     width: 100%;
