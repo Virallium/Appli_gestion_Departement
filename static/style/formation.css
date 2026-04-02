@@ -61,33 +61,60 @@
       background-position: 100% 0;
    }
 }
- body{
-    overflow-x: hidden;
-    color: var(--txt-color);
-    width: 100%;
+.load_anim{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: #6c757da7;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   opacity: 1;
+   z-index: 1000;
 }
-body::-webkit-scrollbar{
-   width: 8px;
+.load_anim .circle{
+   width: 50px;
+   height: 50px;
+   background: transparent;
+   border: 3px solid var(--light-color);
+   border-left-color: var(--light-color);
+   border-right-color: var(--light-color);
+   border-top-color: var(--primary-color);
+   border-bottom-color: var(--light-color);
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   animation: spinload .7s linear infinite;
+   -webkit-animation: spinload .7s linear infinite;
 }
-body::-webkit-scrollbar-thumb{
-   background: var(--primary-color);
-   border-radius: 10%;
-   -webkit-border-radius: 10%;
-   -moz-border-radius: 10%;
-   -ms-border-radius: 10%;
-   -o-border-radius: 10%;
-   transition: .9s;
-   -webkit-transition: .9s;
-   -moz-transition: .9s;
-   -ms-transition: .9s;
-   -o-transition: .9s;
-   cursor: pointer;
+@keyframes spinload {
+   from{
+      transform: rotate(0);
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
 }
-body::-webkit-scrollbar-thumb:hover{
-   background: var(--info-color);
+to{
+   transform: rotate(1turn);
+   -webkit-transform: rotate(1turn);
+   -moz-transform: rotate(1turn);
+   -ms-transform: rotate(1turn);
+   -o-transform: rotate(1turn);
 }
-body::-webkit-scrollbar-track{
-   background: var(--light-color);
+}
+.remove_load_anim{
+   opacity: 0;
+   pointer-events: none;
+   transition: .8s;
+   -webkit-transition: .8s;
+   -moz-transition: .8s;
+   -ms-transition: .8s;
+   -o-transition: .8s;
 }
 
 header{
@@ -103,7 +130,6 @@ header{
     top:0;
     left:0;
     padding:.5rem;
-
 }
 #menu{
     display:none;

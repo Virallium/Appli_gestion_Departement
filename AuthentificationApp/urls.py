@@ -7,5 +7,6 @@ urlpatterns = [
     path('Contact/', views.Contact, name='Contact'),
     path('Politiques/',views.Politiques, name='Politiques' ),
     path('Aide/', views.aide, name='Aide'),
-    path('activites/',include('gestouvriers.urls'))
+    path('activites/',include('gestouvriers.urls')),
+    
 ]

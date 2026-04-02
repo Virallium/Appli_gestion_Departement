@@ -22,73 +22,7 @@
     text-decoration: none;
     list-style-type: none;
  }
- .skeleton{
-   position: relative;
-   z-index: -1;
- }
- .skeleton::before{
-   content:'';
-   position: absolute;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
-   z-index: 1;
-   background: linear-gradient(var(--skeleton-base), var(--skeleton-highlight));
-   border-radius: var(--borderadius-btn);
-   -webkit-border-radius: var(--borderadius-btn);
-   -moz-border-radius: var(--borderadius-btn);
-   -ms-border-radius: var(--borderadius-btn);
-   -o-border-radius: var(--borderadius-btn);
-   animation: skeleton 5s infinite;
-   -webkit-animation: skeleton 5s infinite;
-   opacity:1;
-}
-.skeleton.removeSkeleton::before{
-   opacity:0;
-   transition: 1s;
-   -webkit-transition: 1s;
-   -moz-transition: 1s;
-   -ms-transition: 1s;
-   -o-transition: 1s;
-   pointer-events: none;
-}
-@keyframes skeleton {
-   0%{
-      background-position: -100% 0;
-   }
-   100%{
-      background-position: 100% 0;
-   }
-}
- body{
-    overflow-x: hidden;
-    color: var(--txt-color);
-    width: 100%;
-}
-body::-webkit-scrollbar{
-   width: 8px;
-}
-body::-webkit-scrollbar-thumb{
-   background: var(--primary-color);
-   border-radius: 10%;
-   -webkit-border-radius: 10%;
-   -moz-border-radius: 10%;
-   -ms-border-radius: 10%;
-   -o-border-radius: 10%;
-   transition: .9s;
-   -webkit-transition: .9s;
-   -moz-transition: .9s;
-   -ms-transition: .9s;
-   -o-transition: .9s;
-   cursor: pointer;
-}
-body::-webkit-scrollbar-thumb:hover{
-   background: var(--info-color);
-}
-body::-webkit-scrollbar-track{
-   background: var(--light-color);
-}
+
 
 header{
     background: var(--light-color);
@@ -444,6 +378,37 @@ h1{
    text-align: center;
     gap: 1rem;
     color: var(--secondary-color);
+}
+.created{
+   display:flex;
+   flex-direction:column;
+   gap:1rem;
+   justify-content:center;
+   align-items:center;
+   width:100%;
+}
+.created div{
+   display:flex;
+   gap:1.5rem;
+   justify-content:center;
+   align-items:center;
+}
+.created a{
+   color:var(--secondary-color);
+   font-weight:550;
+   font-size:1.2rem;
+   border-bottom:2px solid var(--primary-color);
+   width:fit-content;
+}
+.created div p{
+   background:var(--primary-color);
+   color:var(--light-color);
+   border-radius:var(--borderadius-btn);
+   -webkit-border-radius:var(--borderadius-btn);
+   -moz-border-radius:var(--borderadius-btn);
+   -ms-border-radius:var(--borderadius-btn);
+   -o-border-radius:var(--borderadius-btn);
+   padding:.5rem;
 }
 footer a,footer p{
     font-size: clamp(.8rem,1vw,1.1rem);

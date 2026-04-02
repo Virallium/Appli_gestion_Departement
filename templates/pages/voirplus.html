@@ -2,6 +2,10 @@
 {% load static %}
 {% block title%}Activités{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/formation.css' %}">{% endblock csslink %}
+{% block animate %}
+        <link rel="stylesheet" href="{% static 'style/animations.css' %}">
+        <script src="{% static 'js/style.js' %}" defer></script>
+{% endblock animate %}
 {% block navcontent %}
                         <ul>
                             <li><a href="{% url "Accueil" %}">Accueil</a></li>

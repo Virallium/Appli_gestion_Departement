@@ -2,6 +2,10 @@
 {% load static %}
 {% block title%}Communauté{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/communaute.css' %}">{% endblock csslink %}
+{% block animate %}
+        <link rel="stylesheet" href="{% static 'style/animations.css' %}">
+        <script src="{% static 'js/style.js' %}" defer></script>
+{% endblock animate %}
 {% block navcontent %}
     <ul>
         <li><a href="{% url "Accueil" %}" class="">Accueil</a></li>
@@ -31,6 +35,26 @@
                 <img src="{% static 'photos/bible1.png' %}" alt="bible" width="300px">
             </div>
         </div>
+        <h2 style="text-align: center;" class="h2_verset">Versets Bibliques</h2>
+        <div class="published_versets">
+            {% for verset in versets %}
+                <div class="box">
+                    <div class="circle"></div>
+                    <i class="fa-solid fa-book-open" id="verset-icon"></i>
+                    <h2 class="theme">{{verset.theme}}</h2>
+                    <p class="ref">Ref.Biblique: <span>{{verset.ref_biblic}}</span></p>
+                    <div class="personnages">
+                        <p>{{verset.personnages_biblique}}</p>
+                    </div>
+                    <div class="description">
+                        <p>{{verset.description}}</p>
+                    </div>
+                    <div class="date">
+                        <h3>{{verset.date_publiee}}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
         <h2 class="liste_membres">Liste des membres de la communauté</h2>
         <div class="communaute">
                 {% for membre in membres  %}
@@ -48,6 +72,8 @@
                     <h2 class="empty">Aucun membre n'a été ajouté</h2>
                 {% endfor %}
         </div>
-    </div>
-{% endblock sections %}
-
+        <h2 class="carte_interactive">Carte Interactive de la Communauté</h2>
+        <div class="map-container">
+            {{ map_html|safe }}
+        </div>
+    {% endblock sections %}

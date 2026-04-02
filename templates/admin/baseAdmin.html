@@ -18,14 +18,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
     <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
-    {% block csslink %}<link rel="stylesheet" href="{% static 'style/style.css' %}">{% endblock csslink %}
+    {% block csslink %}<link rel="stylesheet" href="{% static 'style/admin/administrateur.css' %}">{% endblock csslink %}
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
-    
     <link rel="stylesheet" href="{% static 'style/track.css' %}">
-    {% block animate %}
-    {% endblock animate %}
     <link rel="shortcut icon" href="{% static 'photos/logo.jpg' %}" type="image">
-    <title>{% block title%}Connexion|Utilisateurs{% endblock title %}</title>
+    <title>{% block title%}Administrateur{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,52 +55,69 @@
 </head>
 <body>
     <main>
-        <div class="load_anim">
-            <div class="circle"></div>
-        </div>
-            <div class="rgba"></div>
-            <header>
-                <a href="{% url "Accueil" %}"><div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo du département" width="100px"></div></a>
-                <nav>
-                    {% block navcontent %}
-                        <ul>
-                            <li><a href="{% url "Accueil" %}" class="activelink">Accueil</a></li>
-                            <li><a href="{% url "Communaute" %}">Communauté</a></li>
-                            <li><a href="{% url "voirplus" %}">Activités</a></li>
-                            <li><a href="{% url "Contact" %}">Contact</a></li>
-                        </ul>
-                    <button class="button">Déconnexion</button>
-                    <i class="fa-solid fa-bars" id="menu"></i>
-                    {% endblock navcontent %}
-                </nav>
-            </header>
+        {% block aside %}
+            <nav>
+                <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt=""></div>
+                <ul>
+                    <li><a href="{% url 'admin_membres' %}"><span><i class="fa-solid fa-person-circle-plus"></i></span></a></li>
+                    <li><a href="{% url 'admin_activites' %}"><span><i class="fa-solid fa-chart-line"></i></span></a></li>
+                    <li><a href="{% url 'admin_versets' %}"><span><i class="fa-solid fa-book-bible"></i></span></a></li>
+                    <li><a href="{% url 'Admin' %}" class="active"><span><i class="fa-solid fa-square-poll-vertical" ></i></span></a></li>
+                </ul>
+            </nav>
+        {% endblock aside %}
+                
+        <div class="right">
             {% block headercontent %}
-
-            {% endblock headercontent %}
-        {% block sections %}
-            
-        {% endblock sections %}
-        {% block aside %}{% endblock aside %}
-        {% block footer %}
-            <footer>
-                <div class="footer-content">
-                    <div class="contact-info">
-                        <h3>Contactez-nous</h3>
-                        <p><i class="fas fa-phone"></i> +243 123 456 789</p>
-                        <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
-                    </div>
-                    <div class="created">
-                        <h3>Boosted by </h3>
-                        <a href="https://kitokodevwork.com">KitokodevWork</a>
-                        <div class="div">
-                            <p>Miradi Mengi</p>
-                            <p>Eustache Muzaliwa</p>
-                        </div>
+                <div class="content">
+                    <h1>Bienvenue dans votre espace administrateur</h1>
+                    <p>Gérez les membres, les activités et les versets bibliques de la communauté du cénacle.</p>
+                    <div class="admin-options">
+                        <a href="{% url 'admin_membres' %}" class="option">Gérer les Membres</a>
+                        <a href="{% url 'admin_activites' %}" class="option">Gérer les Activités</a>
+                        <a href="{% url 'admin_versets' %}" class="option">Gérer les Versets Bibliques</a>
                     </div>
                 </div>
-        {% endblock footer %}
-
-
+            {% endblock headercontent %}
+            {% block sections %}
+                <section class="admin-dashboard">
+                    <div class="admin-content">
+                        <h2>Tableau de bord de l'administrateur</h2>
+                        <p>Utilisez les options ci-dessus pour gérer les différentes sections de la communauté du cénacle.</p>
+                    </div>
+                    <div class="membres">
+                        <h2>Membres</h2>
+                        <div class="card"></div>
+                    </div>
+                    <div class="activites">
+                        <h2>Activités</h2>
+                        <div class="card"></div>
+                    </div>
+                    <div class="versets">
+                        <h2>Versets Bibliques</h2>
+                        <div class="card"></div>
+                    </div>
+                </section>
+            {% endblock sections %}
+            {% block footer %}
+                    <footer>
+                        <div class="footer-content">
+                            <div class="contact-info">
+                                <h3>Contactez-nous</h3>
+                                <p><i class="fas fa-phone"></i> +243 123 456 789</p>
+                                <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
+                            </div>
+                            <div class="created">
+                                <h3>Boosted by </h3>
+                                <a href="https://kitokodevwork.com">KitokodevWork</a>
+                                <div class="div">
+                                    <p>Miradi Mengi</p>
+                                    <p>Eustache Muzaliwa</p>
+                                </div>
+                            </div>
+                        </div>
+                {% endblock footer %}
+        </div>
     </main>
     <script>
         AOS.init();

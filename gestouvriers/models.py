@@ -15,7 +15,7 @@ class Membres(models.Model):
     datenais=models.DateField(verbose_name="Date_naissance", default=timezone.now,null=True, blank=True)
     numtel=models.CharField(max_length=20, default="0901717545")
     adresse=models.CharField(max_length=150,default="Mfinda, 12,Ngafula, Ngaliema")
-    photo=models.ImageField(upload_to='membres/', default="activites/images_1.webp", blank=True, null=True)
+    photo=models.ImageField(upload_to='membres/', blank=True, null=True)
     def __str__(self):
         return f"{self.nom_membre} {self.postnom_membre}"
      
@@ -26,7 +26,7 @@ class Activites(models.Model):
     nombre_participants=models.IntegerField(verbose_name="Nombre des participants", default="30")
     date=models.DateField(verbose_name="Date")
     description_de_la_formation=models.CharField(max_length=150, verbose_name="Description de la formation", default="formation sur l'évangélisation")
-    img=models.ImageField(upload_to="activites/", verbose_name="Image", default="activites/images_1.webp",blank=True, null=True)
+    img=models.ImageField(upload_to="activites/", verbose_name="Image",blank=True, null=True)
     
     def __str__(self):
         return self.titre
@@ -38,7 +38,11 @@ class Admin(models.Model):
     postnomAd = models.CharField(max_length=100, verbose_name='Postnom', default='ndingambote')
     prenomAd = models.CharField(max_length=100, verbose_name="Prénom", default='mengi')
     id_membre=models.ForeignKey(Membres, verbose_name="Id membre", on_delete=models.CASCADE)
-    IdAct=models.ForeignKey(Activites, verbose_name="Id Activite", on_delete=models.CASCADE)
-    
-
+    IdAct=models.ForeignKey(Activites, verbose_name="Id Activite", on_delete=models.CASCADE)   
+class versets(models.Model):
+    theme=models.CharField(max_length=100, verbose_name="theme")
+    personnages_bibliques=models.CharField(max_length=250, verbose_name="personnages_biblique")
+    ref_biblic=models.CharField(max_length=100, verbose_name="reference biblique")
+    date_publiee=models.DateField(auto_now_add=True)
+    description=models.CharField(max_length=150, verbose_name="description")
 

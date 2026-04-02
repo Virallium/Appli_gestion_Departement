@@ -11,7 +11,12 @@ rgba.addEventListener('click',()=>{
 })
 const skeletonAnimation=document.querySelectorAll('.skeleton')
     skeletonAnimation.forEach(sk=>{
-        window.addEventListener("load", ()=>{
+        window.addEventListener("DOMContentLoaded", ()=>{
         sk.classList.add("removeSkeleton")
     })
+})
+const load_anim=document.querySelector('.load_anim')
+window.addEventListener('load',() =>{
+    load_anim.classList.remove('.load_anim')
+    load_anim.classList.add('remove_load_anim')
 })
