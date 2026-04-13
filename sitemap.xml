@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+    <url>
+        <loc>
+            https://cenacle.com
+        </loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://cenacle.com/about</loc>
+        <priority>0.8</priority>
+    </url>
+</urset>

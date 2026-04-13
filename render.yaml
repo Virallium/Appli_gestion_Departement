@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: accueil-nouveau-project
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn AccueilnouveauProject.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        fromService:
+          type: web
+          name: accueil-nouveau-project
+          property: host
+      - key: DATABASE_URL
+        sync: false
+
+databases:
+  - name: accueil-db
+    databaseName: accueil_db
+    user: accueil_user
+    plan: starter

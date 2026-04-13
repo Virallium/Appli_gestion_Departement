@@ -1,0 +1,262 @@
+ :root{
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --txt-color:#000;
+    --borderadius-btn:15px;
+    padding: min(1.5rem,10%);
+ }
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+ }
+ 
+swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
+    }
+header{
+    background: var(--light-color);
+    box-shadow: 6px 3px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align:center;
+    position: fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    padding:.3rem;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:1rem;
+
+}
+   
+  .login{
+        margin-top:5rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns:repeat(auto-fit,minmax(min(300px,90%),1fr));
+        place-items:center;
+        gap: 1rem;
+  }.politique{
+    color: var(--secondary-color);
+  }
+  .politique:hover{
+    text-decoration: underline;
+  }
+  .container-login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.container-login h1{
+    font-size: clamp(1.8rem,3vw,1.5rem);
+    text-align: center;
+}
+
+    label{
+        font-size: clamp(1rem,2vw,1.2rem);
+    }
+  input{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--dark-color);
+    border-radius: var(--borderadius-btn);
+    margin-bottom: 1rem;
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
+}
+    ul{
+        display: flex;
+        gap:.5rem;
+    }
+    ul li a{
+        background: var(--info-color);
+        padding: .2rem;
+        border-radius: 50%;
+    }
+    ul li a i{
+        color:var(--light-color);
+        transition: .7s ease;
+        -webkit-transition: .7s ease;
+        -moz-transition: .7s ease;
+        -ms-transition: .7s ease;
+        -o-transition: .7s ease;
+}
+    ul li a i:hover{
+        transform: rotate(30deg);
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+}
+  .button{
+    width: 100%;
+    padding: .5rem 3rem;
+    border-radius: var(--borderadius-btn);
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
+    border: none;
+    cursor: pointer;
+    color: var(--dark-color);
+    letter-spacing: 1px;
+    font-weight: 550;
+    position: relative;
+    overflow: hidden;
+    font-size: clamp(1rem,2vw,.9rem);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+.button::before{
+    content: 'Aide';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 100%;
+    background: var(--info-color);
+    border-radius: var(--borderadius-btn);
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
+    letter-spacing: 1px;
+    font-weight: 550;
+    font-size: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in .7s;
+    -webkit-transition: ease-out .3s;
+    -moz-transition: ease-in .7s;
+    -ms-transition: ease-in .7s;
+    -o-transition: ease-in .7s;
+}
+.button:hover::before{
+    width: 100%;
+    font-size: 1rem;
+}
+  .btnconnect{
+    width: 100%;
+    padding: .5rem 3rem;
+    border-radius: var(--borderadius-btn);
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
+    border: none;
+    cursor: pointer;
+    color: var(--dark-color);
+    letter-spacing: 1px;
+    font-weight: 550;
+    position: relative;
+    overflow: hidden;
+    font-size: clamp(1rem,2vw,.9rem);
+}
+.btnconnect::before{
+    content: 'Se connecter';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 100%;
+    background: var(--info-color);
+    border-radius: var(--borderadius-btn);
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
+    letter-spacing: 1px;
+    font-weight: 550;
+    font-size: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in .7s;
+    -webkit-transition: ease-out .3s;
+    -moz-transition: ease-in .7s;
+    -ms-transition: ease-in .7s;
+    -o-transition: ease-in .7s;
+}
+.btnconnect:hover::before{
+    width: 100%;
+    font-size: 1rem;
+}
+.contact-info{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.contact-info p{
+    font-size: clamp(.7rem,1vw,1.1rem);
+}
+.logo img{
+    width: 80px;
+    height: 80px;
+    clip-path: 
+    circle(50% at center center);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.pas_de_compte{
+    color: var(--txt-color);
+}
+.pas_de_compte:hover{
+    text-decoration: underline;
+}
+footer{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(150px,70%),1fr));
+    align-items: center;
+    place-items: center;
+    padding: .5rem;
+    margin-top: 3rem;
+}
+footer a,footer p{
+    font-size: clamp(.8rem,1vw,1.1rem);
+}
