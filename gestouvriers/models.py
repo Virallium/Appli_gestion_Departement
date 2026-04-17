@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
+
 #un membre est un utilisateur donc il a un profil
 class Membres(models.Model):
     id_membre=models.AutoField(primary_key=True)
@@ -30,19 +32,23 @@ class Activites(models.Model):
     
     def __str__(self):
         return self.titre
-class Admin(models.Model):
-    IdAdmin=models.AutoField(primary_key=True)
-    emailAd=models.CharField(max_length=150, unique=True, default="admin@gmail.com")
-    mpassAd=models.CharField(max_length=8, unique=True, default="Miradi000@")
-    nomAd=models.CharField(max_length=100,verbose_name="nom utilisateur",default='miradi')
-    postnomAd = models.CharField(max_length=100, verbose_name='Postnom', default='ndingambote')
-    prenomAd = models.CharField(max_length=100, verbose_name="Prénom", default='mengi')
-    id_membre=models.ForeignKey(Membres, verbose_name="Id membre", on_delete=models.CASCADE)
-    IdAct=models.ForeignKey(Activites, verbose_name="Id Activite", on_delete=models.CASCADE)   
+
 class versets(models.Model):
     theme=models.CharField(max_length=100, verbose_name="theme")
     personnages_bibliques=models.CharField(max_length=250, verbose_name="personnages_biblique")
     ref_biblic=models.CharField(max_length=100, verbose_name="reference biblique")
     date_publiee=models.DateField(auto_now_add=True)
     description=models.CharField(max_length=150, verbose_name="description")
+    def __str__(self):
+        return self.theme
+
+class Admin(models.Model):
+    IdAdmin=models.AutoField(primary_key=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='admin_custom')
+    nomAd=models.CharField(max_length=100,verbose_name="nom utilisateur",default='miradi')
+    id_membre=models.ForeignKey(Membres, verbose_name="Id membre", on_delete=models.CASCADE)
+    IdAct=models.ForeignKey(Activites, verbose_name="Id Activite", on_delete=models.CASCADE)
+    id=models.ForeignKey(versets, verbose_name="Id verset", on_delete=models.CASCADE)   
+    def __str__(self):
+        return self.nomAd
 

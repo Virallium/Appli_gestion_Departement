@@ -1,27 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Utilisateur(models.Model):
-    Idutilisateur=models.AutoField(primary_key=True)
-    email = models.EmailField(verbose_name='Adresse e-mail',default='mengimiradi@gmail.com', unique=True)
-    motdepasse = models.CharField(max_length=150, verbose_name="Mot de passe", default='Miradi000@')
-    def __str__(self):
-        return f"{self.Idutilisateur} {self.email}"
-
 class Profil(models.Model):
-    Idprofil=models.AutoField(primary_key=True)
-    nom=models.CharField(max_length=100,verbose_name="nom utilisateur",default='miradi')
-    postnom = models.CharField(max_length=100, verbose_name='Postnom', default='ndingambote')
-    prenom = models.CharField(max_length=100, verbose_name="Prénom", default='mengi')
-    datenais=models.DateField
-    numero = models.CharField(max_length=10, verbose_name='Numéro de téléphone', default='0901717545')
-    photo=models.ImageField(upload_to='Profil/', default="Profil/default.png")
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    adresse=models.CharField(max_length=200, verbose_name='Adresse', default='51, Kisantu-Kinshasa, Selembao')
+    # On lie le profil DIRECTEMENT au système de compte Django
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profil')
     
+    postnom = models.CharField(max_length=100, verbose_name='Postnom', blank=True)
+    datenais = models.DateField(null=True, blank=True)
+    numero = models.CharField(max_length=15, verbose_name='Numéro de téléphone', blank=True)
+    
+    # Pour Supabase, attention : l'image risque d'être perdue à chaque push sur Render 
+    # si tu n'utilises pas Supabase Storage
+    photo = models.ImageField(upload_to='Profil/', default="Profil/default.png")
+    
+    adresse = models.CharField(max_length=200, verbose_name='Adresse', blank=True)
+
     def __str__(self):
-        return f"{self.nom} {self.prenom} {self.adresse} {self.photo}"
-
-
+        return f"{self.user.username} - {self.user.email} - {self.user.password}"
 
     

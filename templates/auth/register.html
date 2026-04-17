@@ -32,30 +32,10 @@
         </swiper-container>
         <div class="container-login">
             <h1>Enregistrement</h1>
-             <form action="" method="POST"> 
+             <form enctype="multipart/form-data" method="POST"> 
                 {% csrf_token %}               
-                <label for="name" id="name">Nom Utilisateur</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="postname" id="postname">Post-Nom</label>
-                <input type="text" id="postname" name="postname" required>
-                
-                <label for="pren" id="pren">Prénom</label>
-                <input type="text" id="pren" name="pren" required>
-                
-                <label for="num">Tel</label>
-                <input type="tel" id="num" name="num" required>
-                
-                <label for="mail">Email</label>
-                <input type="email" id="mail" name="mail" required>
-
-                <label for="Ad">Adresse</label>
-                <input type="text" id="Ad" name="Ad" required>
-                
-                <label for="password" id="password">Mot de passe</label>
-                
-                <input type="password" id="password" name="password" required>
-            
+                {{u_form.as_p}}
+                {{p_form.as_p}}
                 <button type="submit" class="btnconnect">S'enregistrer</button><br><br>
                 <p>Veuillez enregistrer vos informations <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p>
             </form>
@@ -70,7 +50,7 @@
         </div>
         <div class="contact-info">
             <h3>Contactez-nous</h3>
-            <p><i class="fas fa-phone"></i> +243 123 456 789</p>
+            <p><i class="fas fa-phone"></i> +243 822857°2</p>
             <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
         </div>
     </footer>

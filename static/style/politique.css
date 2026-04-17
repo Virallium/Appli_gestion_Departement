@@ -18,7 +18,6 @@
     font-family: 'Poppins', sans-serif;
     outline: none;
     text-decoration: none;
-    list-style-type: none;
  }
 
 
@@ -97,14 +96,17 @@ li a:hover::before{
     border-radius: var(--borderadius-btn);
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1); 
 }
-.aide{
-    padding-top: 7rem;
+.contents{
+    padding: 7rem 0 5rem 0;
+
 }
-.aide h1{
-    font-size: clamp(1.5rem,2vw,2rem);
-    text-align: start;
-    margin-bottom: 1rem;
-    border-bottom: 5px solid var(--primary-color);
+details ul{
+    list-style: disc;
+    margin: 1rem 0 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+    place-items: center;
 }
 summary a{
     color: var(--primary-color);
@@ -113,15 +115,26 @@ summary a{
 summary a:hover{
     text-decoration: underline;
 }
- footer{
-    width: 100%;
-    height: 100%;
+.bottomtxt{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(min(150px,70%),1fr));
-    align-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1rem;
     place-items: center;
-    padding: .5rem;
-    margin-top: 3rem;
+    margin: 6rem 0 6rem 0;
+    color: var(--secondary-color);
+    letter-spacing: 4px;
+    text-align: center;
+}
+footer{
+   padding: 2rem 0;
+   position: relative;
+   bottom: 0;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    place-items: center;
+    text-align: center;
 }
 footer a,footer p{
     font-size: clamp(.8rem,1vw,1.1rem);

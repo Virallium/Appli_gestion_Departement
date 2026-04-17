@@ -368,16 +368,13 @@ h1{
    -o-border-radius: 50%;
    color: var(--secondary-color);
 }
- footer{
-    width: 100%;
-    height: 100%;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-    gap: 1rem;
-    color: var(--secondary-color);
+footer{
+   padding: 2rem 0;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    place-items: center;
 }
 .created{
    display:flex;

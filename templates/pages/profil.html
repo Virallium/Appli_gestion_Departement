@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mon Profil{% endblock title %}
+{% block animate %}
+        <link rel="stylesheet" href="{% static 'style/animations.css' %}">
+        <script src="{% static 'js/style.js' %}" defer></script>
+{% endblock animate %}
+{% block csslink %}
+    <link rel="stylesheet" href="{% static 'style/profil.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+{% endblock csslink %}
+{% block navcontent %}
+    <ul>
+        <li><a href="{% url "Accueil" %}">Accueil</a></li>
+        <li><a href="{% url "Communaute" %}">Communauté</a></li>
+        <li><a href="{% url "voirplus" %}">Activités</a></li>
+        <li><a href="{% url "Contact" %}">Contact</a></li>
+        <li><a href="{% url "profil" %}" class='activelink'>Profil</a></li>
+    </ul>
+    <button class="button">Déconnexion</button>
+    <i class="fa-solid fa-bars" id="menu"></i>
+{% endblock navcontent %}
+{% block sections %}
+    <div class="container">
+    <h1>Mon Profil</h1>
+    <div class="profile-info">
+        <form action="" enctype="multipart/form-data">
+            <div class="img">
+                {% if profil.photo %}
+                    <img src="{{ profil.photo.url }}" alt="Image de profil" width="100%">
+                {% else %}
+                    <img src="{% static 'photos/default.png' %}" alt="Image par défaut" width="100%">
+                {% endif %}
+            </div>
+            <div class="bottom">
+                <p><strong>Nom d'utilisateur:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Postnom:</strong> {{ profil.postnom }}</p>
+                <p><strong>Date de naissance:</strong> {{ profil.datenais }}</p>
+                <p><strong>Numéro de téléphone:</strong> {{ profil.numero }}</p>
+                <button type="submit">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock sections %}

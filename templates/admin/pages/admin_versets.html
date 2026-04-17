@@ -1,0 +1,14 @@
+{% extends "admin/baseAdmin.html" %}
+{% load static %}
+{% block aside %}
+    <nav>
+        <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo"></div>
+        <ul>
+            <li><a href="{% url 'admin_membres' %}"><span><i class="fa-solid fa-person-circle-plus"></i></span></a></li>
+            <li><a href="{% url 'admin_activites' %}"><span><i class="fa-solid fa-chart-line"></i></span></a></li>
+            <li><a href="{% url 'admin_versets' %}" class="active"><span><i class="fa-solid fa-book-bible"></i></span></a></li>
+            <li><a href="{% url 'Admin' %}"><span><i class="fa-solid fa-square-poll-vertical" ></i></span></a></li>
+        </ul>
+        <div class="add"><i class="fa-solid fa-plus"></i></div>
+    </nav>
+{% endblock aside %}

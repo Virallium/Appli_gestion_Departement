@@ -113,18 +113,18 @@ summary a{
 summary a:hover{
     text-decoration: underline;
 }
- footer{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(min(150px,70%),1fr));
-    align-items: center;
-    place-items: center;
-    padding: .5rem;
-    margin-top: 3rem;
-}
+
 footer a,footer p{
     font-size: clamp(.8rem,1vw,1.1rem);
+}
+footer{
+   padding: 2rem 0;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    place-items: center;
+    text-align: center;
 }
 @media(max-width:850px){
     #menu{

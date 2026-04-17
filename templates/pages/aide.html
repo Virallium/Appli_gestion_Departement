@@ -3,7 +3,7 @@
 {% block title %}Aide{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/aide.css' %}">{% endblock csslink %}
 {% block navcontent %}
-    <button class="button">Rétour</button>
+    <a class="button" href="{% url 'login' %}">Rétour</a>
 {% endblock navcontent%}
 {% block sections %}
 <section class="aide">

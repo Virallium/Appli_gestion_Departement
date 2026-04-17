@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Connexion Admin{% endblock title %}
+{% block title%}Changement mot de passe{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/admin/connection.css' %}">{% endblock csslink %}
 {% block sections %}
     <div class="container">
         <div class="form">
-            <h2>Connexion Admin</h2>
+            <h2>Mot de passe</h2>
             <form method="post">
                 {% csrf_token %}
                 <input type="text" name="username" placeholder="Nom d'utilisateur" required>
                 <input type="password" name="password" placeholder="Mot de passe" required>
-                <button type="submit">Se connecter</button>
-                <a href="{% url "changer_mp" %}">Changer de mot de passe</a>
+                <button type="submit">Valider</button>
             </form>
         </div>
     </div>

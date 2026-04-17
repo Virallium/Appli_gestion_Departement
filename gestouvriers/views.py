@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Activites,Membres,versets
+from .form import CustomMembers, CustomActivities, CustomVersets
 import folium
 def activite(request):
     activite_list=Activites.objects.all()
@@ -21,6 +22,8 @@ def admin(request):
 
 def connexionadmin(request):
     return render(request,'admin/auth/connection.html')
+def changempass(request):
+    return render(request,'admin/auth/changempass.html')
 
 def admin_membres(request):
     return render(request,'admin/pages/admin_membre.html')    

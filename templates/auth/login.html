@@ -30,8 +30,16 @@
             </swiper-slide>
         </swiper-container>
         <div class="container-login">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
             <h1>Connexion</h1>
-            <form action="" method="POST">
+            <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 <label for="username">Nom d'utilisateur</label><br>
                 <input type="text" id="username" name="username" required>
@@ -39,7 +47,6 @@
                 <label for="password">Mot de passe</label>
                 <br>
                 <input type="password" id="password" name="password" required>
-
                 <br>
                 <button type="submit" class="btnconnect">Se connecter</button><br>
                 <p>Veuillez compléter vos informations de connexion <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span><span>  <a href="{% url "register" %}" class="pas_de_compte">pas de compte?</a></span></p>

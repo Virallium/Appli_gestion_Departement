@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from decouple import config,Csv
-import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,12 +79,10 @@ WSGI_APPLICATION = 'AccueilnouveauProject.wsgi.application'
 
 
 import dj_database_url
-from dotenv import load_dotenv
-load_dotenv()
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASES_URL'),
+        default=config('DATABASES_URL'),
         conn_max_age=600,
         ssl_require=True
     )

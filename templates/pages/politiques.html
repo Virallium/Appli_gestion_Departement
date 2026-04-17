@@ -2,11 +2,11 @@
 {% load static %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/politique.css' %}">{% endblock csslink %}
 {% block title%}Politique{% endblock title %}
+{% block navcontent %}
+    <a href="{% url "login" %}" class="button">Rétour</a>
+{% endblock navcontent %}
 {% block headercontent %}
-    <header>
-        <nav>
-            <div class="btnretour"></div>
-        </nav>
+    <div class="contents">
         <h1>Politique de Confidentialité</h1>
         <h3>Découvrir la politique</h3>
         <details>
@@ -19,7 +19,7 @@
             <ul>
                 <li>La Politique de Confidentialité du Cénacle explique comment nous recueillons, utilisons et partageons vos informations. Elle décrit également la durée de conservation de vos informations et la manière dont nous les protégeons au moment du transfert.</li>
                 <li>La Politique de Confidentialité vous permet également de connaître vos droits.</li>
-                <li></li>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi repudiandae sapiente voluptas reiciendis perspiciatis blanditiis earum facere harum. Autem dolorum at voluptatem illo minus, dignissimos quo numquam voluptatibus tempora enim.</li>
             </ul>
         </details>
         <details>
@@ -44,20 +44,21 @@
             <Summary>
                 Combien de temps conservons-nous vos informations?
             </Summary>
-            <p></p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur natus veniam ea itaque vero. Repudiandae soluta optio autem vel voluptatem officiis exercitationem facere dolorem et, illo dolore tempora, at enim?</p>
         </details>
         <details>
             <Summary>
                 Comment saurez-vous que la Politique a été modifiée?
             </Summary>
 
-            <p></p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi consequuntur quidem facere atque perspiciatis quae dolorum nam illum voluptatibus distinctio accusamus, dicta consectetur animi aspernatur neque molestias hic repellendus exercitationem.</p>
         </details>
-
-    </header>
+    </div>
 {% endblock headercontent %}
 {% block sections %}
-    <h4>Autres politiques</h4>
-    <a href="">Conditions de service</a>
-    <a href="">Politique d'utilisation des cookies</a>
+    <div class="bottomtxt">
+        <h4>Autres politiques</h4>
+        <a href="">Conditions de service</a>
+        <a href="">Politique d'utilisation des cookies</a>
+    </div>
 {% endblock sections %}

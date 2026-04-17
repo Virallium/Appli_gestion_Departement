@@ -1,0 +1,40 @@
+{% extends "admin/baseAdmin.html" %}
+{% load static %}
+{% block title%}Membres enregistres{% endblock title %}
+{% block aside %}
+    <nav>
+        <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt=""></div>
+        <ul>
+            <li><a href="{% url 'admin_membres' %}"><span><i class="fa-solid fa-person-circle-plus"></i></span></a></li>
+            <li><a href="{% url 'admin_activites' %}" class="active"><span><i class="fa-solid fa-chart-line"></i></span></a></li>
+            <li><a href="{% url 'admin_versets' %}"><span><i class="fa-solid fa-book-bible"></i></span></a></li>
+            <li><a href="{% url 'Admin' %}"><span><i class="fa-solid fa-square-poll-vertical" ></i></span></a></li>
+        </ul>
+        <div class="add"><i class="fa-solid fa-plus"></i></div>
+    </nav>
+{% endblock aside %}
+{% block sections %}
+    <div class="container">
+        <h2>Membres enregistres</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Numéro de téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for membre in membres %}
+                <tr>
+                    <td>{{ membre.nom }}</td>
+                    <td>{{ membre.prenom }}</td>
+                    <td>{{ membre.email }}</td>
+                    <td>{{ membre.numero_telephone }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock sections %}
