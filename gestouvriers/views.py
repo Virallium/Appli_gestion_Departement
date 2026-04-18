@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Activites,Membres,versets
+from django.contrib import messages
 from .form import CustomMembers, CustomActivities, CustomVersets
 import folium
 def activite(request):
@@ -18,18 +19,73 @@ def membre(request):
     })
 
 def admin(request):
-    return render(request,'admin/pages/admin.html')
-
+    activites=Activites.objects.all()
+    membres=Membres.objects.all()
+    verset_bibl=versets.objects.all()
+    return render(request,'admin/pages/admin.html',{
+        'Activites':activites,
+        'Membres':membres,
+        'Versets':verset_bibl
+    })
+#loginAdmin
 def connexionadmin(request):
     return render(request,'admin/auth/connection.html')
+#change password admin
 def changempass(request):
     return render(request,'admin/auth/changempass.html')
 
 def admin_membres(request):
-    return render(request,'admin/pages/admin_membre.html')    
+    if request.method=="POST":
+        form=CustomMembers(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Membre ajouté avec succès !')
+            return redirect('admin_membres')
+    else:
+        form=CustomMembers()
+    activites=Activites.objects.all()
+    membres=Membres.objects.all()
+    verset_bibl=versets.objects.all()
+    return render(request,'admin/pages/admin_membre.html',{
+        'form':form,
+        'Activites':activites,
+        'Membres':membres,
+        'Versets':verset_bibl
+    })
+
 
 def admin_activites(request):
-    return render(request,'admin/pages/admin_activites.html')  
+    if request.method=="POST":
+        form=CustomActivities(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+    else: 
+        form=CustomActivities()
+    activites=Activites.objects.all()
+    membres=Membres.objects.all()
+    verset_bibl=versets.objects.all()
+    return render(request,'admin/pages/admin_activites.html',{
+        'Activites':activites,
+        'Membres':membres,
+        'Versets':verset_bibl,
+        'form':form
+    })  
  
 def admin_versets(request):
-    return render(request,'admin/pages/admin_versets.html')    
+    if request.method == "POST":
+        form=CustomVersets(request.POST)
+        if form.is_valid():
+            form.save()
+        messages.success(request,'Verset ajouté avec succès !')
+        return redirect('admin_versets')
+    else:
+        form=CustomVersets()
+    activites=Activites.objects.all()
+    membres=Membres.objects.all()
+    verset_bibl=versets.objects.all()
+    return render(request,'admin/pages/admin_versets.html',{
+        'Activites':activites,
+        'Membres':membres,
+        'Versets':verset_bibl,
+        'form':form
+    })    

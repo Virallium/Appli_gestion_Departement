@@ -14,27 +14,17 @@
     </nav>
 {% endblock aside %}
 {% block sections %}
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     <div class="container">
-        <h2>Membres enregistres</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Numéro de téléphone</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for membre in membres %}
-                <tr>
-                    <td>{{ membre.nom }}</td>
-                    <td>{{ membre.prenom }}</td>
-                    <td>{{ membre.email }}</td>
-                    <td>{{ membre.numero_telephone }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h2>Activités</h2>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}             
+            {{form.as_p}}
+            <button type="submit" class="add">Enregistrer</button>
+    </form>
     </div>
 {% endblock sections %}

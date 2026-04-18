@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{% static 'style/track.css' %}">
     <link rel="shortcut icon" href="{% static 'photos/logo.jpg' %}" type="image">
     <title>{% block title%}Administrateur{% endblock title %}</title>
+    {% block jsstyle_micro %}
+        <script src="{% static 'js/admingesttyle.js' %}" defer></script>
+    {% endblock jsstyle_micro %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,36 +90,56 @@
                     </div>
                     <div class="membres">
                         <h2>Membres</h2>
-                        <div class="card"></div>
-                    </div>
-                    <div class="activites">
+                        <div class="card">
+                            {% for Membre in Membres  %}
+                                <div class="box">
+                                    <h3>{{Membre.nom}}</h3>
+                                    <p>{{Membre.prenom}}</p>
+                                    <p>{{Membre.postnom}}</p>
+                                    <p>{{Membre.numtel}}</p>
+                                    <p>{{Membre.adresse}}</p>
+                                    <p>{{Membre.date_inscription}}</p>
+                                    <img src="{{Membre.photo.url}}" alt="{{Membre.nom}}">
+                                    {% empty %}
+                                        <p>Aucun membre à afficher.</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="activites">
                         <h2>Activités</h2>
-                        <div class="card"></div>
+                        <div class="card">
+                            {% for Activite in Activites  %}
+                            <div class="box">
+                                    <h3>{{Activite.titre}}</h3>
+                                    <p>{{Activite.description}}</p>
+                                    <p>{{Activite.description}}</p>
+                                    <p>{{Activite.nombre_participants}}</p>
+                                    <img src="{{Activite.photo.url}}" alt="{{Activite.titre}}">
+                                </div>
+                                {% empty %}
+                                    <p>Aucune activité à afficher</p>
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="versets">
                         <h2>Versets Bibliques</h2>
-                        <div class="card"></div>
+                        <div class="card">
+                            {% for Verset in Versets  %}
+                                <div class="box">
+                                    <h3>{{Verset.theme}}</h3>
+                                    <p>{{Verset.personnage}}</p>
+                                    <p>{{Verset.date_publiee}}</p>
+                                    <p>{{Verset.description}}</p>
+                                    {% empty %}
+                                        <p>Aucun verset à afficher.</p>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    </div>
+                    
                 </section>
             {% endblock sections %}
-            {% block footer %}
-                    <footer>
-                        <div class="footer-content">
-                            <div class="contact-info">
-                                <h3>Contactez-nous</h3>
-                                <p><i class="fas fa-phone"></i> +243 123 456 789</p>
-                                <p><i class="fa-solid fa-location-pin"></i> 02, Des écuries, Institut Kilimani-Ngaliema(Kinshasa,RDC).</p>
-                            </div>
-                            <div class="created">
-                                <h3>Boosted by </h3>
-                                <a href="https://kitokodevwork.com">KitokodevWork</a>
-                                <div class="div">
-                                    <p>Miradi Mengi</p>
-                                    <p>Eustache Muzaliwa</p>
-                                </div>
-                            </div>
-                        </div>
-                {% endblock footer %}
         </div>
     </main>
     <script>

@@ -12,3 +12,32 @@
         <div class="add"><i class="fa-solid fa-plus"></i></div>
     </nav>
 {% endblock aside %}
+{% block headercontent %}
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="content">
+        <h1>GESTION VERSETS BIBLIQUES</h1>
+        <p>Gérez les versets bibliques que vous souhaitiez rajouter à la base de données du cénacle.</p>
+    </div>
+{% endblock headercontent %}
+{% block sections %}
+    <section class="admin-dashboard">
+        <div class="admin-content">
+            <h2>Tableau Enregistrement versets</h2>
+            <p>Utilisez les options ci-dessus pour gérer les différentes sections de la communauté du cénacle.</p>
+        </div>
+        <dialog>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div id="close"><i class="fa-solid fa-x"></i></div>
+                 <div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo"></div>            
+                {{form.as_p}}
+                <button type="submit">Enregistrer</button>
+            </form>
+        </dialog>
+        </div>
+    </section>
+{% endblock sections %}

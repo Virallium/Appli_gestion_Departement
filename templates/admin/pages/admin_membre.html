@@ -14,30 +14,23 @@
     </nav>
 {% endblock aside %}
 {% block headercontent %}
-
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="content">
+        <h1>MEMBRES ENREGISTRES</h1>
+        <p>Gérez les membres que vous souhaitiez rajouter à la base de données du cénacle.</p>
+    </div>
 {% endblock headercontent %}
 {% block sections %}
     <div class="container">
         <h2>Membres enregistres</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Numéro de téléphone</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for membre in membres %}
-                <tr>
-                    <td>{{ membre.nom }}</td>
-                    <td>{{ membre.prenom }}</td>
-                    <td>{{ membre.email }}</td>
-                    <td>{{ membre.numero_telephone }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}             
+            {{form.as_p}}
+            <button type="submit" class="add">Enregistrer</button>
+        </form>
     </div>
 {% endblock sections %}

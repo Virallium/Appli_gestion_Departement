@@ -17,6 +17,14 @@ class CustomVersets(forms.ModelForm):
         model=versets
         fields='__all__'
         
+class CustomActivites(forms.ModelForm):
+    class Meta:
+        model=Activites
+        fields='__all__'
+class Custome_Versets(forms.ModelForm):
+    class Meta:
+        model=versets
+        fields='__all__'
         
         
     
