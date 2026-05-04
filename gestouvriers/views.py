@@ -1,11 +1,14 @@
-from django.shortcuts import render,redirect
-from .models import Activites,Membres,versets
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from .form import CustomMembers, CustomActivities, CustomVersets
+from django.contrib.auth import authenticate, login
+from .models import Activites, Membres, versets
+from .form import CustomMembers, CustomActivities, CustomVersets, loginAdmin,ChangePassword
 import folium
+
 def activite(request):
     activite_list=Activites.objects.all()
     return render(request, 'pages/voirplus.html',{'activites':activite_list})
+
 def membre(request):
     membre_list=Membres.objects.all()
     verset=versets.objects.all()
@@ -29,10 +32,46 @@ def admin(request):
     })
 #loginAdmin
 def connexionadmin(request):
-    return render(request,'admin/auth/connection.html')
-#change password admin
+    if request.method == "POST":
+        form = loginAdmin(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Connexion réussie !')
+                return redirect('Admin')
+            else:
+                messages.error(request, "Nom d'utilisateur ou mot de passe incorrect.")
+    else:
+        form = loginAdmin()
+    return render(request,'admin/auth/connection.html',{
+        'form': form
+    })
+
 def changempass(request):
-    return render(request,'admin/auth/changempass.html')
+    # 1. On récupère l'instance de l'utilisateur (User) lié à l'Admin connecté
+    # On suppose que l'utilisateur est connecté
+    user_instance = request.user 
+
+    if request.method == "POST":
+        # 2. On lie le formulaire à l'instance de l'utilisateur
+        form = ChangePassword(request.POST, instance=user_instance)
+        
+        if form.is_valid():
+            # 3. Sécurité : On ne sauvegarde pas direct pour hacher le mot de passe
+            user = form.save(commit=False)
+            password = form.cleaned_data.get('password')
+            user.set_password(password) # Hachage du mot de passe
+            user.save()
+            
+            messages.success(request, 'Le mot de passe a été modifié avec succès !')
+            return redirect('loginAdmin')
+    else:
+        # Affichage initial du formulaire vide ou lié à l'instance
+        form = ChangePassword(instance=user_instance)
+    return render(request, 'admin/auth/changempass.html', {'form': form})
 
 def admin_membres(request):
     if request.method=="POST":
@@ -43,6 +82,7 @@ def admin_membres(request):
             return redirect('admin_membres')
     else:
         form=CustomMembers()
+def admin_aff_membres(request):
     activites=Activites.objects.all()
     membres=Membres.objects.all()
     verset_bibl=versets.objects.all()
@@ -52,7 +92,7 @@ def admin_membres(request):
         'Membres':membres,
         'Versets':verset_bibl
     })
-
+    return render(request, 'admin/pages/admin.html')
 
 def admin_activites(request):
     if request.method=="POST":

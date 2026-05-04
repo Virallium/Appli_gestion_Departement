@@ -1,6 +1,6 @@
-from django.contrib.auth import admin
 from .models import Membres, Activites, versets
 from django import forms
+from django.contrib.auth.models import User
 
 class CustomMembers(forms.ModelForm):
     class Meta:
@@ -27,5 +27,11 @@ class Custome_Versets(forms.ModelForm):
         fields='__all__'
         
         
-    
-    
+class loginAdmin(forms.Form):
+    username = forms.CharField(max_length=150, label='Nom d’utilisateur')
+    password = forms.CharField(widget=forms.PasswordInput, label='Mot de passe')
+
+class ChangePassword(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['password']

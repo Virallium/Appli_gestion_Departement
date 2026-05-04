@@ -93,28 +93,44 @@
                         <div class="card">
                             {% for Membre in Membres  %}
                                 <div class="box">
-                                    <h3>{{Membre.nom}}</h3>
-                                    <p>{{Membre.prenom}}</p>
-                                    <p>{{Membre.postnom}}</p>
-                                    <p>{{Membre.numtel}}</p>
-                                    <p>{{Membre.adresse}}</p>
-                                    <p>{{Membre.date_inscription}}</p>
-                                    <img src="{{Membre.photo.url}}" alt="{{Membre.nom}}">
-                                    {% empty %}
-                                        <p>Aucun membre à afficher.</p>
+                                    <div class="contents">
+                                        <h3>{{Membre.nom}}</h3>
+                                        <p>{{Membre.prenom}}</p>
+                                        <p>{{Membre.postnom}}</p>
+                                        <p>{{Membre.numtel}}</p>
+                                        <p>{{Membre.adresse}}</p>
+                                        <p>{{Membre.date_inscription}}</p>
+                                        {% if Membre.photo %}
+                                            <img src="{{Membre.photo.url}}" alt="{{Membre.nom}}">
+                                        {% else %}
+                                        <span></span>
+                                        {% endif %}
+                                    <div class="icon_btns">
+                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </div>
+                                    </div>
                                 </div>
+                                {% empty %}
+                                <p>Aucun membre à afficher.</p>
                             {% endfor %}
                         </div>
                         <div class="activites">
                         <h2>Activités</h2>
                         <div class="card">
                             {% for Activite in Activites  %}
-                            <div class="box">
-                                    <h3>{{Activite.titre}}</h3>
-                                    <p>{{Activite.description}}</p>
-                                    <p>{{Activite.description}}</p>
-                                    <p>{{Activite.nombre_participants}}</p>
-                                    <img src="{{Activite.photo.url}}" alt="{{Activite.titre}}">
+                                <div class="box">
+                                    <div class="contents">
+                                        <h3>{{Activite.titre}}</h3>
+                                        <p>{{Activite.description}}</p>
+                                        <p>{{Activite.description}}</p>
+                                        <p>{{Activite.nombre_participants}}</p>
+                                        <img src="{{Activite.photo.url}}" alt="{{Activite.titre}}">
+                                        <div class="icon_btns">
+                                            <i class="fa-solid fa-trash"></i>
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 {% empty %}
                                     <p>Aucune activité à afficher</p>
@@ -126,10 +142,17 @@
                         <div class="card">
                             {% for Verset in Versets  %}
                                 <div class="box">
-                                    <h3>{{Verset.theme}}</h3>
-                                    <p>{{Verset.personnage}}</p>
-                                    <p>{{Verset.date_publiee}}</p>
-                                    <p>{{Verset.description}}</p>
+                                    <div class="contents">
+                                        <h3>{{Verset.theme}}</h3>
+                                        <p>{{Verset.personnage}}</p>
+                                        <p>{{Verset.date_publiee}}</p>
+                                        <p>{{Verset.description}}</p>
+                                        <div class="icon_btns">
+                                            <i class="fa-solid fa-trash"></i>
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </div>
+                                    </div>
+
                                     {% empty %}
                                         <p>Aucun verset à afficher.</p>
                                 </div>

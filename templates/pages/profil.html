@@ -17,7 +17,10 @@
         <li><a href="{% url "Contact" %}">Contact</a></li>
         <li><a href="{% url "profil" %}" class='activelink'>Profil</a></li>
     </ul>
-    <button class="button">Déconnexion</button>
+    <form method="POST" action="{% url "logout" %}">
+        {% csrf_token %}
+        <button type="submit" class="button">Déconnexion</button>
+    </form>
     <i class="fa-solid fa-bars" id="menu"></i>
 {% endblock navcontent %}
 {% block sections %}
@@ -26,7 +29,7 @@
     <div class="profile-info">
         <form action="" enctype="multipart/form-data">
             <div class="img">
-                {% if profil.photo %}
+                {% if profil.photo and profil.photo.url %}
                     <img src="{{ profil.photo.url }}" alt="Image de profil" width="100%">
                 {% else %}
                     <img src="{% static 'photos/default.png' %}" alt="Image par défaut" width="100%">
@@ -38,7 +41,7 @@
                 <p><strong>Postnom:</strong> {{ profil.postnom }}</p>
                 <p><strong>Date de naissance:</strong> {{ profil.datenais }}</p>
                 <p><strong>Numéro de téléphone:</strong> {{ profil.numero }}</p>
-                <button type="submit">Modifier</button>
+                <button type="submit" class="modifbtn">Modifier</button>
             </div>
         </form>
     </div>

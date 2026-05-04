@@ -14,7 +14,10 @@
                             <li><a href="{% url "Contact" %}">Contact</a></li>
                             <li><a href="{% url "profil" %}">Profil</a></li>
                         </ul>
-                    <button class="button">Déconnexion</button>
+                    <form method="POST" action="{% url "logout" %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button">Déconnexion</button>
+                    </form>
                     <i class="fa-solid fa-bars" id="menu"></i>
                     {% endblock navcontent %}
 {% block sections %}
@@ -25,20 +28,24 @@
                     <p>Des moments d'enseignement pour approfondir la parole de Dieu et fortifier votre foi.</p>
                 </div>
             </div>
-        <div class="boxs">
-            {% for activite in activites %}
-                <div class="box">
-                    <img src="{{activite.img.url}}" alt="Activité">
-                    <h3 class="titre">{{activite.titre}}</h3>
-                    <h3>{{activite.description_de_la_formation}}</h3>
-                    <div class="down">
-                        <a href="">{{activite.date}}</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> {{activite.nombre_participants}}</p>
-                    </div>
+        <div class="boxs-contents">
+                <div class="boxs">
+                    {% for activite in activites %}
+                        <div class="box">
+                            <img src="{{activite.img.url}}" alt="Activité">
+                            <h3 class="titre">{{activite.titre}}</h3>
+                            <h3>{{activite.description_de_la_formation}}</h3>
+                            <div class="down">
+                                <a href="">{{activite.date}}</a>
+                                <p><span><i class="fa-solid fa-user"></i></span> {{activite.nombre_participants}}</p>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <h2 class="empty">
+                            <p>Aucune Activié n'est disponible.</p>
+                        </h2>
+                    {% endfor %}
                 </div>
-                {% empty %}
-                <h2 class="empty">Aucune Activié n'est disponible.</h2>
-            {% endfor %}
         </div>
 
     </div>

@@ -11,7 +11,7 @@ class Profil(models.Model):
     
     # Pour Supabase, attention : l'image risque d'être perdue à chaque push sur Render 
     # si tu n'utilises pas Supabase Storage
-    photo = models.ImageField(upload_to='Profil/', default="Profil/default.png")
+    photo = models.ImageField(upload_to='Profil/', blank=True, null=True)
     
     adresse = models.CharField(max_length=200, verbose_name='Adresse', blank=True)
 
