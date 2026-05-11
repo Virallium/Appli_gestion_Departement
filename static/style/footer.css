@@ -1,0 +1,130 @@
+  :root{
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --txt-primary-:#fff;
+    --dark-color: #343a40;
+    --txt-color:#000;
+    --borderadius-btn:15px;
+ }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+ }
+ html {
+    height: 100%;
+ }
+
+ body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+ }
+footer {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: var(--dark-color);
+    color: var(--txt-primary-);
+    margin-top: 50px;
+    padding: 60px 1.5rem;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    width: 100%;
+    gap: 40px;
+    place-items: center;
+
+}
+
+/* Titres */
+footer h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Infos de Contact */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.2rem;
+    color: #bbb;
+    line-height: 1.4;
+}
+
+.contact-info i {
+    color: var(--warning-color);
+    font-size: 1.1rem;
+}
+
+/* Section Créateurs (Boosted by) */
+.created {
+    display: flex;
+    flex-direction: column;
+}
+
+.created a {
+    color: var(--txt-primary-);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.created a:hover {
+    color: var(--primary-color);
+}
+
+
+.created .div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: none; 
+    padding: 0;
+}
+
+.created .div p {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.created .div p:hover{
+   transition: all .3s;
+   color: var(--light-color);
+   -webkit-transition: all .3s;
+   -moz-transition: all .3s;
+   -ms-transition: all .3s;
+   -o-transition: all .3s;
+}
+
+/* Copyright Bar */
+footer::after {
+    content: "© 2026 Cénacle - All Rights Reserved";
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+}

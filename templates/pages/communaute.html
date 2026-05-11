@@ -66,9 +66,9 @@
                         <div class="photo">
                             {% if membre.photo %}
                                 <img src="{{membre.photo.url}}" alt="photo_membre" width="50px">
+                                {% else %}
+                                <span></span>
                             {% endif %}
-                            {% else %}
-                            <span></span>
                         </div>
                         <div class="text">
                             <h3>{{membre.nom_membre}}</h3>

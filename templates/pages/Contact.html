@@ -1,62 +1,110 @@
 {% extends "base.html" %}
-{% block title%}{% endblock title %}
 {% load static %}
-{% block csslink %}<link rel="stylesheet" href="{% static 'style/contact.css' %}">{% endblock csslink %}
+{% block title %}Contact - Le Cénacle{% endblock title %}
+
+{% block csslink %}
+    <link rel="stylesheet" href="{% static 'style/contact.css' %}">
+{% endblock csslink %}
 {% block animate %}
         <link rel="stylesheet" href="{% static 'style/animations.css' %}">
         <script src="{% static 'js/style.js' %}" defer></script>
 {% endblock animate %}
+
 {% block navcontent %}
     <ul>
-        <li><a href="{% url "Accueil" %}">Accueil</a></li>
-        <li><a href="{% url "Communaute" %}">Communauté</a></li>
-        <li><a href="{% url "voirplus" %}">Activités</a></li>
-        <li><a href="{% url "Contact" %}" class='activelink'>Contact</a></li>
-        <li><a href="{% url "profil" %}">Profil</a></li>
+        <li><a href="{% url 'Accueil' %}">Accueil</a></li>
+        <li><a href="{% url 'Communaute' %}">Communauté</a></li>
+        <li><a href="{% url 'voirplus' %}">Activités</a></li>
+        <li><a href="{% url 'Contact' %}" class='activelink'>Contact</a></li>
+        <li><a href="{% url 'profil' %}">Profil</a></li>
     </ul>
-    <form method="POST" action="{% url "logout" %}">
+    <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit" class="button">Déconnexion</button>
     </form>
     <i class="fa-solid fa-bars" id="menu"></i>
 {% endblock navcontent %}
-{% block headercontent %}
-    <div class="contact">
-        <div class="text">
-            <h1>Contactez notre département</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quis architecto accusamus ullam consectetur. Itaque repellendus assumenda beatae, cumque quia et, deleniti quam officia laborum nisi in quos, odio ab!</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63655.41588980038!2d15.2823553!3d-4.3236884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a31005d0a1245%3A0xa8512ee1787c017d!2sRond%20point%20huilerie!5e0!3m2!1sen!2scd!4v1773781958488!5m2!1sen!2scd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="contactbox">
-            <form action="">
-                {% csrf_token %}
-                <h2>Envoyez un message</h2>              
-                <label for="name" id="name">Nom Utilisateur</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="postname" id="postname">Post-Nom</label>
-                <input type="text" id="postname" name="postname" required>
-                
-                <label for="pren" id="pren">Prénom</label>
-                <input type="text" id="pren" name="pren" required>
-                
-                <label for="num">Tel</label>
-                <input type="tel" id="num" name="num" required>
-                
-                <label for="mail">Email</label>
-                <input type="email" id="mail" name="mail" required>
 
-                <label for="Ad">Adresse</label>
-                <input type="text" id="Ad" name="Ad" required>
+{% block headercontent %}
+<div class="contact-container">
+    <div class="contact-grid">
+        <!-- Colonne Gauche : Infos & Carte -->
+        <div class="info-side">
+            <div class="text-content">
+                <h1>Rejoignez le Cénacle</h1>
+                <p>Vous avez des questions sur nos formations, nos retraites ou nos activités communautaires ? Notre équipe est à votre écoute pour vous accompagner dans votre cheminement.</p>
                 
-                <label for="password" id="password">Mot de passe</label>
-                
-                <input type="password" id="password" name="password" required>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Rond Point Huilerie, Kinshasa, RDC</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+243 81 000 000 00</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>contact@lecenacle.com</span>
+                    </div>
+                </div>
+            </div>
             
-                <button type="submit" class="btnconnect button">S'enregistrer</button><br><br>
-                <p>Veuillez enregistrer vos informations <br><span><strong>Pour plus de détail</strong><br><span><a href="{% url "Politiques" %}" class="politique">Consultez notre politique de confidentialité</a></span></span>, <span>  <a href="{% url "login" %}" class="pas_de_compte">se connecter</a></span></p
-            </form>
-            
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63655.41588980038!2d15.2823553!3d-4.3236884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a31005d0a1245%3A0xa8512ee1787c017d!2sRond%20point%20huilerie!5e0!3m2!1sen!2scd!4v1773781958488!5m2!1sen!2scd" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- Colonne Droite : Formulaire -->
+        <div class="form-side">
+            <div class="contactbox">
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="message {{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <form action="{% url 'Contact' %}" method="POST">
+                    {% csrf_token %}
+                    <h2>Envoyez un message</h2>
+                    <p class="subtitle">Remplissez ce formulaire pour nous poser une question ou vous enregistrer.</p>
+                    
+                    <div class="input-group">
+                        <div class="field">
+                            <label>Nom & Post-nom</label>
+                            <input type="text" name="name" placeholder="Ex: Kabange John" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="field">
+                            <label>Téléphone</label>
+                            <input type="tel" name="num" placeholder="+243..." required>
+                        </div>
+                        <div class="field">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Votre message..." required></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="mail" placeholder="exemple@mail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Adresse physique</label>
+                        <input type="text" name="Ad" placeholder="Commune, Quartier, Avenue..." required>
+                    </div>
+
+                    <button type="submit" class="button btn-full">Envoyer un message</button>
+
+                    <div class="form-footer">
+                        <p>En vous envoyant un message, vous acceptez notre <a href="{% url 'Politiques' %}">politique de confidentialité</a>.</p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 {% endblock headercontent %}

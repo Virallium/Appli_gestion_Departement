@@ -1,4 +1,4 @@
-from .models import Membres, Activites, versets
+from .models import Membres, Activites, versets, Messages
 from django import forms
 from django.contrib.auth.models import User
 
@@ -35,3 +35,14 @@ class ChangePassword(forms.ModelForm):
     class Meta:
         model=User
         fields=['password']
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Messages
+        fields = ['nom', 'telephone', 'email', 'adresse', 'message']
+        labels = {
+            'nom': 'Nom & Post-nom',
+            'telephone': 'Téléphone',
+            'email': 'Email',
+            'adresse': 'Adresse physique',
+            'message': 'Message'
+        }

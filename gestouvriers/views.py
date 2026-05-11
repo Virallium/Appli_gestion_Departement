@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .models import Activites, Membres, versets
+from .models import Activites, Membres, versets, Messages
 from .form import CustomMembers, CustomActivities, CustomVersets, loginAdmin,ChangePassword
 import folium
 
@@ -87,12 +87,10 @@ def admin_aff_membres(request):
     membres=Membres.objects.all()
     verset_bibl=versets.objects.all()
     return render(request,'admin/pages/admin_membre.html',{
-        'form':form,
         'Activites':activites,
         'Membres':membres,
         'Versets':verset_bibl
     })
-    return render(request, 'admin/pages/admin.html')
 
 def admin_activites(request):
     if request.method=="POST":
@@ -129,3 +127,40 @@ def admin_versets(request):
         'Versets':verset_bibl,
         'form':form
     })    
+def accueil_view(request):
+    activites=Activites.objects.all()
+    return render(request, 'pages/index.html',{
+        'activite':activites
+    })
+
+def Communaute(request):
+    return render(request,'pages/Communaute.html')
+
+def Contact(request):
+    if request.method == 'POST':
+        nom = request.POST.get('name')
+        telephone = request.POST.get('num')
+        email = request.POST.get('mail')
+        adresse = request.POST.get('Ad')
+        message = request.POST.get('message')
+        
+        # Créer et sauvegarder le message en base de données
+        Messages.objects.create(
+            nom=nom,
+            telephone=telephone,
+            email=email,
+            adresse=adresse,
+            message=message
+        )
+        
+        # Redirection ou message de succès
+        messages.success(request, 'Votre message a été envoyé avec succès!')
+        return redirect('Contact')
+    
+    return render(request,'pages/Contact.html')
+
+def Politiques(request):
+    return render(request,'pages/politiques.html')
+
+def aide(request):
+    return render(request,'pages/aide.html')

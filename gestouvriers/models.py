@@ -52,3 +52,19 @@ class Admin(models.Model):
     def __str__(self):
         return self.nomAd
 
+class Messages(models.Model):
+    id_message=models.AutoField(primary_key=True)
+    nom=models.CharField(max_length=100, verbose_name="Nom et Post-nom")
+    message=models.TextField(verbose_name='Message', null=True, blank=True)
+    telephone=models.CharField(max_length=20, verbose_name="Téléphone")
+    email=models.EmailField(verbose_name="Email")
+    adresse=models.CharField(max_length=150, verbose_name="Adresse physique")
+    date_envoi=models.DateTimeField(auto_now_add=True, verbose_name="Date d'envoi")
+    
+    def __str__(self):
+        return f"{self.nom} - {self.date_envoi}"
+    
+    class Meta:
+        ordering = ['-date_envoi']
+        verbose_name_plural = "Messages"
+

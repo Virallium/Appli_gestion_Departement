@@ -17,105 +17,150 @@
                 <a href="{% url "voirplus" %}">Evenements à venir</a>
             </div>
         </div>
+        <div class="historique">
+            <h2>Historique <span>du département</span></h2>
+            <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
+            navigation="false" pagination-dynamic-bullets="true" autoplay="true" autoplay-delay="4000">
+                <swiper-slide>
+                    <img src="{% static 'photos/img1.jpg' %} " />
+                    <h3>
+                        <span>Le département du cénacle a été fondé en 2008 par le pasteur</span>
+                        <span>Aujourd'hui apôtre Roland Dalo, à la génèse de l'église <span>Centre Missionaire Philadelphie</span>, église dont il est le visionnaire</span>
+                     </h3>
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="{% static 'photos/img2.jpg' %} " />
+                    <h3>
+                        <span>Ce département a été a été pensé pour être un cadre d'initiation à la lecture systématique de la bibl, l'outil central de ses activités, Aujourd'hui, avec l'expansion du Centre Missionnaire Philadelphie, le cénacle poursuit sa mission dans ses différentes extensions, dont l'église de la maison de miséricorde</span>
+                        <span>(extension du Centre Missionnaire Philadelphie à Ngaliema), où il est dirigé par le berger Alain Mutombo, le premier à occuper cette fonction depuis les débuts de l'égliseen 2022</span>
+                    </h3>
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="{% static 'photos/img3.jpg' %} " />
+                    <h3>
+                        <span>Le nom cénacle a été inspiré de la Sainte Bible. Le Cénacle (du latn 'cenaculum', signifiant "salle à manger") est traditionnellement indentifié à la "Chambre haute" mentionnée dans les évangiles et les Actes des Apôtres.</span>
+                        <span>C'est un lieu fondamental dans la bible, associé à plusieurs événements cruciaux notamment la dernière Cène ou le dernier repas de jésus avec ses apôtres avant sa crucifixion <span>(Matthieu 26:17-30, Marc 14:12-26, Luc 22:7-23)</span></span>
+                    </h3>
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="{% static 'photos/img4.jpg' %} " />
+                    <h3><span>Le lieu traditionnel du Cénacle se trouve sur le Mont Sion à jérusalem. il est également appelé 'Hyperoon' en grec, signifiant également "chambre haute".</span></h3>
+                </swiper-slide>
+            </swiper-container>
+        </div>
+        <div class="vision">
+            <div class="top" data-aos="fade-left">
+                <h2>Vision <span><i class="fa-solid fa-star"></i></span></h2>
+                <p>La vision du Cénacle se résume en une phrase:</p>
+                <h3>"Conduire  l'assemblée à la connaissance profonde des écritures, à être affermi dans la parole."</h3>
+            </div>
+            <div class="middle">
+                <p>Pour concrétiser cette vision, le département propose deux types de rencontres: des réunions de partage biblique et des réunions de formation</p>
+            </div>
+            <div class="type_rencontre">
+                <div class="type">
+                    <div class="top" data-aos="fade-right">
+                        <i class="fa-brands fa-audible"></i>
+                        <p>Réunion de partage Biblique</p>
+                    </div>
+                    <p>Elles se tiennent chaque mercredi de 15h30 à 17h30 au temple de l'église. Ces réunions offrent un espace d'échange structuré autour d'une fourchette de versets bibliques préalablement lus et médités par les participants suivants un calendrier systématque établi par le département, ceci garanti que l'ensemble de l'assemblé est affermi dans la même portion de la parole.</p>
+                    
+                </div>
+                <div class="type">
+                    <div class="top" data-aos="fade-left">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <p>Réunion de formation</p>
+                    </div>
+                    <p>Elles se tiennent chaque dimanche de 9h45 à 12h00. Ces réunions de formation sont une occasion privilégié pour permettre aux participants d'approfondir leurs connaissances bibliques et d'aiguiser leur compréhension des écritures.</p>
+                </div>
+            </div>
+
+        </div>
         <div class="Activites">
             <div class="title">
                 <div class="left">
                     <h2>Nos Activité</h2>
                     <p>Des moments d'enseignement pour approfondir la parole de Dieu et fortifier votre foi.</p>
                 </div>
-                <a href="{% url "voirplus" %}">Voir plus <span><i class="fa-solid fa-angles-right"></i></span></a>
+                <a href="{% url "voirplus" %}" style="color: var(--primary-color);">Voir plus <span><i class="fa-solid fa-angles-right"></i></span></a>
             </div>
             <div class="boxs">
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img1.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">12/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 20</p>
+                {% for activites in activite  %}
+                    <div class="box skeleton">
+                        {% if activites.img.url %}
+                            <img src="{{ activites.img.url }}" alt="{{ activites.titre }}">
+                        {% else %}
+                        <span></span>
+                        {% endif %}
+                        <h3>{{ activites.titre }}</h3>
+                        <p>{{ activites.desc }}</p>
+                        <div class="down">
+                            <a href="">{{ activites.date }}</a>
+                            <p><span><i class="fa-solid fa-user"></i></span> 20</p>
+                        </div>
                     </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img2.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">15/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 30</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img3.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">10/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 30</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img4.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">10/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 25</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img5.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">12/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 20</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img6.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">12/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 20</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img7.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">12/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 20</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img8.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">12/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 20</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img9.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">15/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 25</p>
-                    </div>
-                </div>
-                <div class="box skeleton">
-                    <img src="{% static 'photos/img10.jpg' %}" alt="Activité">
-                    <h3>Formation</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, praesentium?</p>
-                    <div class="down">
-                        <a href="">10/Déc</a>
-                        <p><span><i class="fa-solid fa-user"></i></span> 30</p>
-                    </div>
-                </div>
+                    {% empty %}
+                    <p >Aucune activité n'est disponible.</p>
+                {% endfor %}
+        </div>
+        <div class="commission" data-aos="fade-up">
+            <h2>Commission du cénacle</h2>
+            <table>
+                <thead>
+                    <td>Comminssion Responsabilités clés</td>
+                    <td>Responsabilités clés</td>
+                </thead> 
+                <tbody>
+                    <tr>
+                        <td>
+                            Niveau 1 de direction de leadership
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Le berger (Président)
+                        </td>
+                        <td>Le berger, communique la vision définit l'orientation, prend les décisions stratégiques et représente le département auprès de l'administration de l'église</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Niveau 2 de direction de leadership
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            La Coordination
+                        </td>
+                        <td>
+                            Supervise l'ensemble des activités et es sous commissions et s'assure que la vision est transformée en programmes concrets
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            L'administration
+                        </td>
+                        <td>
+                            Gère la documentation et les différents groupes de communication, veiller à l'intégration des nouveaux, au respect des procédures internes et à la bonne tenue des rencontres ou des activités.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Les finances
+                        </td>
+                        <td>
+                            Gestion du budget des fonds. Suivre les recettes et les dépenses du département préparer les rapports financiers et s'assurer de la transparence et de la conformité des transactions.
+                        </td>
+                    </tr>
+                </tbody>          
+            </table>
+        </div>
+        <div class="presentation_berger">
+            <div class="txt">
+                <h2>Berger du Cénacle</h2>
+                <p>Mr Alain Grâce Mutombo</p>
+            </div>
+            <div class="img">
+                <img src="{% static 'photos/responsable_departe.jpeg' %}" alt="reponsable departememnt" width="100%">
             </div>
         </div>
         <div class="avis">
