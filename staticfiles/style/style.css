@@ -29,6 +29,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
  }
 
  main {
@@ -579,25 +580,6 @@ swiper-slide h3 span span {
 }
 
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-
-   .footer-content {
-        text-align: center;
-        grid-template-columns: 1fr;
-    }
-    .contact-info p {
-        justify-content: center;
-    }
-    .created .div {
-        justify-content: center;
-    }
-    .contact-info p {
-        justify-content: center;
-    }
-
-    
-}
 @keyframes shimmer {
     100% { transform: translateX(100%); }
 }
@@ -627,6 +609,5 @@ swiper-slide h3 span span {
    footer{
       width: 100vw;
       margin: 0;
-      background: red;
    }
 }

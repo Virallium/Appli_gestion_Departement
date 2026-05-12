@@ -157,7 +157,6 @@ nav{
     -o-border-radius: var(--borderadius-btn);
     letter-spacing: 1px;
     font-weight: 550;
-    font-size: 0;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -170,7 +169,6 @@ nav{
 }
 .button:hover::before{
     width: 100%;
-    font-size: 1rem;
 }
   .btnconnect{
     width: 100%;

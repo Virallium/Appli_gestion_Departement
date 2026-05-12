@@ -12,13 +12,15 @@
     --radius: 16px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-* {
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+ }
 
 body {
     background-color: #f0f2f5;
