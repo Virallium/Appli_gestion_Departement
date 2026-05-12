@@ -38,14 +38,16 @@
    }
 }
 .load_anim {
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+   position: fixed;
+   inset: 0;
+   background: rgba(255, 255, 255, 0.8);
+   backdrop-filter: blur(5px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 2000;
+   opacity: 1;
+   visibility: visible;
 }
 
 .load_anim .circle {
@@ -73,13 +75,14 @@ to{
 }
 }
 .remove_load_anim{
+   transition: .7s ease;
    opacity: 0;
+   visibility: hidden;
    pointer-events: none;
    animation: none;
    -webkit-animation: none;
-   transition: .8s;
-   -webkit-transition: .8s;
-   -moz-transition: .8s;
-   -ms-transition: .8s;
-   -o-transition: .8s;
+   -webkit-transition: .7s ease;
+   -moz-transition: .7s ease;
+   -ms-transition: .7s ease;
+   -o-transition: .7s ease;
 }

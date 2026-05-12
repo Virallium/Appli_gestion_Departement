@@ -17,6 +17,6 @@ const skeletonAnimation=document.querySelectorAll('.skeleton')
 })
 const load_anim=document.querySelector('.load_anim')
 window.addEventListener('load',() =>{
-    load_anim.classList.remove('.load_anim')
+    load_anim.classList.remove('load_anim')
     load_anim.classList.add('remove_load_anim')
 })

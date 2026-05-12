@@ -27,12 +27,12 @@
             <h2>Souhaitiez-vous nous rejoindre?</h2>
         </div>
         <div class="section_bibli">
-            <div class="left">
+            <div class="left" data-aos="fade-right">
                 <p>Actes 2:46</p>
                 <h2>La Parole de Dieu nous dit ceci:</h2>
                 <h3>Ils étaient chaque jour tous ensemble assidus au temple, ils rompaient le pain dans les maisons, et prenaient leur nourriture avec joie et simplicité de coeur,</h3>
             </div>
-            <div class="right">
+            <div class="right" data-aos="fade-left">
                 <div class="circle"><i class="fa-solid fa-fire"></i></div>
                 <div class="circle"><i class="fa-solid fa-book-bible"></i></div>
                 <div class="circle"><i class="fa-regular fa-face-grin-beam"></i></div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <h2 style="text-align: center;" class="h2_verset">Versets Bibliques</h2>
-        <div class="published_versets">
+        <div class="published_versets" data-aos="fade-up" data-aos-duration="3000">
             {% for verset in versets %}
                 <div class="box">
                     <div class="circle"></div>
@@ -62,7 +62,7 @@
         <h2 class="liste_membres">Liste des membres de la communauté</h2>
         <div class="communaute">
                 {% for membre in membres  %}
-                    <div class="each_member">
+                    <div class="each_member" data-aos="zoom-in-up">
                         <div class="photo">
                             {% if membre.photo %}
                                 <img src="{{membre.photo.url}}" alt="photo_membre" width="50px">
