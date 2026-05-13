@@ -23,32 +23,35 @@
 
  html {
     height: 100%;
+   width: 100%;
  }
 
  body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    width: 100%;
+   width: 100%;
+   overflow-x: hidden;
  }
 
  main {
     flex: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
  }
 
 
 
 /* --- HERO SECTION (PRES) --- */
 .contents {
-    padding: 100px 5% 2rem 5%; /* Évite le chevauchement du header fixe */
+    padding: clamp(60px, 15vw, 100px) 5% 2rem 5%; /* Adaptatif selon écran */
 }
 
 .pres {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../photos/bgpres.jpg') center/cover no-repeat;
-    min-height: 400px;
-    padding: 4rem 2rem;
+    min-height: clamp(300px, 50vh, 400px);
+    padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem);
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
@@ -79,7 +82,7 @@
 }
 
 .btns a {
-    padding: 0.8rem 1.5rem;
+    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
     border-radius: 30px;
     font-weight: 600;
     transition: var(--transition);
@@ -87,6 +90,7 @@
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .btns a:first-child {
@@ -138,6 +142,7 @@
     border-radius: var(--radius);
     border-left: 5px solid var(--primary-color);
     transition: var(--transition);
+    width: 100%;
 }
 
 .type:hover {
@@ -229,6 +234,7 @@ tr:nth-child(even) {
 .historique {
     padding: 4rem 0;
     text-align: center;
+    width: 100%;
 }
 
 .historique h2 {
@@ -252,7 +258,13 @@ swiper-container {
 swiper-slide {
     position: relative;
     display: flex;
-    align-items: flex-end; /* Texte en bas de l'image */
+    align-items: flex-end;
+    /*Texteenbasdel'image*/padding: 2rem 0;
+    border-radius: var(--borderadius-btn);
+    -webkit-border-radius: var(--borderadius-btn);
+    -moz-border-radius: var(--borderadius-btn);
+    -ms-border-radius: var(--borderadius-btn);
+    -o-border-radius: var(--borderadius-btn);
 }
 
 swiper-slide img {
@@ -288,6 +300,11 @@ swiper-slide h3 span span {
     padding: 3rem;
     border-radius: var(--radius);
     margin: 3rem 0;
+    width: 100%;
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
 }
 
 .vision .top h2 {
@@ -610,4 +627,32 @@ swiper-slide h3 span span {
       width: 100vw;
       margin: 0;
    }
+}
+
+/* --- RESPONSIVE MOBILE COMPLET --- */
+@media (max-width: 480px) {
+    .pres h1 {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+    }
+    
+    .btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btns a {
+        width: 100%;
+    }
+    
+    .historique {
+        padding: 2rem 1rem;
+    }
+    
+    .vision {
+        padding: 1.5rem 1rem;
+    }
+    
+    swiper-container {
+        height: 350px;
+    }
 }
