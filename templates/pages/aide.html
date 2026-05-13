@@ -1,27 +1,238 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Aide{% endblock title %}
-{% block csslink %}<link rel="stylesheet" href="{% static 'style/aide.css' %}">{% endblock csslink %}
+{% block title %}Aide & FAQ - Le Cénacle{% endblock title %}
+{% block animate %}
+    <link rel="stylesheet" href="{% static 'style/animations.css' %}">
+    <script src="{% static 'js/style.js' %}" defer></script>
+{% endblock animate %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/aide_premium.css' %}">{% endblock csslink %}
+
 {% block navcontent %}
-    <a class="button" href="{% url 'login' %}">Rétour</a>
-{% endblock navcontent%}
-{% block sections %}
-<section class="aide">
-    <h1>Foire aux questions (FAQ)</h1>
-    <div class="faq">
-        <div class="question">
-            <h2>Pourquoi avoir devenir disciple de jesus christ est-il important?</h2>
-            <p>Devenir disciple de Jésus-Christ est important pour plusieurs raisons. Tout d'abord, cela permet de suivre les enseignements de Jésus et de vivre selon ses principes, ce qui peut apporter une paix intérieure et une direction dans la vie. De plus, être disciple de Jésus signifie faire partie d'une communauté de croyants qui se soutiennent mutuellement dans leur foi. Enfin, cela offre l'espoir de la vie éternelle et la promesse d'une relation personnelle avec Dieu.</p>
-        </div>
-        <div class="question">
-            <h2>Quels sont les tarifs pour les formations proposées par le département du cénacle?</h2>
-            <p>il n'ya aucun tarif pour les formations proposées par le département du cénacle, elles sont gratuites et ouvertes à tous ceux qui souhaitent approfondir leur foi et leur connaissance de la Bible. Le département du cénacle vise à offrir des enseignements accessibles à tous, sans distinction de statut social ou économique.</p>
+    <a href="{% url "login" %}">Retour</a>
+{% endblock navcontent %}
+
+{% block headercontent %}
+<div class="aide-hero">
+    <div class="hero-content" data-aos="fade-down">
+        <h1>Centre d'Aide & FAQ</h1>
+        <p>Trouvez les réponses à vos questions sur le Cénacle</p>
+        <div class="search-box">
+            <input type="text" id="searchFaq" placeholder="Rechercher une question...">
+            <i class="fas fa-search"></i>
         </div>
     </div>
-    <summary>
-        <h2>Vous avez d'autres questions?</h2>
-        <p>N'hésitez pas à nous contacter pour toute question supplémentaire ou pour obtenir de l'aide. Nous sommes là pour vous aider et répondre à vos préoccupations.</p>
-        de contact : <a href="">Contactez-nous</a>
-    </summary>
+</div>
+{% endblock headercontent %}
+
+{% block sections %}
+<section class="aide-container">
+    <div class="aide-wrapper">
+        <!-- Catégories -->
+        <div class="categories" data-aos="fade-right">
+            <h3>Catégories</h3>
+            <button class="cat-btn active" data-filter="all">
+                <i class="fas fa-list"></i> Toutes les questions
+            </button>
+            <button class="cat-btn" data-filter="formations">
+                <i class="fas fa-book"></i> Formations
+            </button>
+            <button class="cat-btn" data-filter="compte">
+                <i class="fas fa-user"></i> Mon Compte
+            </button>
+            <button class="cat-btn" data-filter="communaute">
+                <i class="fas fa-users"></i> Communauté
+            </button>
+            <button class="cat-btn" data-filter="technique">
+                <i class="fas fa-cog"></i> Technique
+            </button>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section" data-aos="fade-left">
+            <div class="faq-container">
+                <!-- Formations -->
+                <div class="faq-category" data-category="formations">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Quels sont les tarifs des formations?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Toutes les formations du Cénacle sont <strong>totalement gratuites</strong>! Nous croyons que la connaissance biblique doit être accessible à tous, peu importe votre situation économique. Aucun frais, aucune contribution obligatoire.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-calendar"></i>
+                            <h3>Quand ont lieu les formations?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>Réunions de formation:</strong> Chaque dimanche de 9h45 à 12h00</p>
+                            <p><strong>Réunions de partage biblique:</strong> Chaque mercredi de 15h30 à 17h30</p>
+                            <p>Les dates peuvent varier pendant les périodes de fêtes. Consultez notre calendrier pour plus de détails.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <h3>Puis-je participer si je suis débutant?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolument! Nos formations sont conçues pour tous les niveaux de connaissance biblique. Que vous soyez complètement nouveau ou expérimenté, vous trouverez votre place dans notre communauté.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compte -->
+                <div class="faq-category" data-category="compte">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-user-plus"></i>
+                            <h3>Comment créer un compte?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>1. Cliquez sur "S'enregistrer" sur la page de connexion</p>
+                            <p>2. Remplissez vos informations personnelles</p>
+                            <p>3. Acceptez nos conditions d'utilisation</p>
+                            <p>4. Confirmez votre adresse email</p>
+                            <p>Votre compte sera immédiatement actif!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-lock"></i>
+                            <h3>J'ai oublié mon mot de passe</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Cliquez sur "Mot de passe oublié?" sur la page de connexion. Un lien de réinitialisation sera envoyé à votre email. Cliquez sur le lien et créez un nouveau mot de passe sécurisé.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-edit"></i>
+                            <h3>Comment modifier mon profil?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Allez dans "Mon Profil" depuis le menu principal. Vous pouvez y modifier votre photo, vos informations personnelles et vos préférences. Cliquez sur "Modifier" et sauvegardez vos changements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communauté -->
+                <div class="faq-category" data-category="communaute">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Comment rencontrer d'autres membres?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Visitez la page "Communauté" pour voir tous les membres du Cénacle. Vous pouvez consulter leurs profils, voir les activités et les formations qu'ils fréquentent.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>Comment m'inscrire à une activité?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Allez dans "Activités" et sélectionnez l'événement qui vous intéresse. Cliquez sur "S'inscrire" pour confirmer votre participation. Vous recevrez une confirmation par email.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technique -->
+                <div class="faq-category" data-category="technique">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>L'app est-elle disponible sur mobile?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Notre plateforme est complètement responsive et fonctionne parfaitement sur tous les appareils (téléphone, tablette, ordinateur). Vous pouvez aussi ajouter le site à votre écran d'accueil.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-clock"></i>
+                            <h3>La plateforme est-elle toujours disponible?</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, notre plateforme est disponible 24/7. Des maintenances occasionnelles peuvent survenir (généralement annoncées à l'avance).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Support -->
+    <div class="contact-support" data-aos="fade-up">
+        <div class="support-content">
+            <h2>Vous n'avez pas trouvé votre réponse?</h2>
+            <p>Notre équipe de support est prête à vous aider</p>
+            <a href="{% url 'Contact' %}" class="btn-support">
+                <i class="fas fa-envelope"></i> Contactez-nous
+            </a>
+        </div>
+    </div>
 </section>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        faqItem.classList.toggle('active');
+        
+        // Fermer les autres
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) item.classList.remove('active');
+        });
+    });
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+        
+        // Activer le bouton
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filtrer les catégories
+        if (filter === 'all') {
+            document.querySelectorAll('.faq-category').forEach(cat => {
+                cat.style.display = 'block';
+            });
+        } else {
+            document.querySelectorAll('.faq-category').forEach(cat => {
+                cat.style.display = cat.dataset.category === filter ? 'block' : 'none';
+            });
+        }
+    });
+});
+
+document.getElementById('searchFaq').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+    });
+});
+</script>
 {% endblock sections %}

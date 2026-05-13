@@ -1,154 +1,115 @@
+/* --- Variables & Base --- */
 :root {
-    --profile-bg: #ffffff;
-    --accent-color: #007bff;
-    --text-main: #2d3436;
-    --text-muted: #636e72;
-    --input-bg: #f9f9f9;
-    --radius-lg: 20px;
-    --radius-md: 12px;
-    --shadow-lux: 0 20px 60px rgba(0, 0, 0, 0.05);
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-body: #f1f5f9;
+    --card-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border-radius: 12px;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-        text-decoration: none;
-        list-style-type: none;
-    }
+
 .container {
-    padding: 120px 5% 60px;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
     text-align: center;
-    letter-spacing: -1px;
 }
 
-/* --- Le Dashboard de Profil --- */
+.container h1 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* --- Profile Card --- */
 .profile-info {
-    width: 100%;
-    background: var(--profile-bg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lux);
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.03);
+    background: var(--card-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 }
 
-.profile-info form {
-    display: flex;
-    flex-direction: row; /* Desktop: Image à gauche, info à droite */
-    min-height: 450px;
+.profile-info:hover {
+    transform: translateY(-5px);
 }
 
-/* --- Section Image (Gauche) --- */
+/* --- Photo de profil --- */
 .profile-info .img {
-    flex: 1;
-    background: #f0f2f5;
-    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #eee;
+    border: 4px solid #fff;
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .profile-info .img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.profile-info .img:hover img {
-    transform: scale(1.08);
+/* --- Détails (Textes) --- */
+.bottom {
+    text-align: left;
+    margin-top: 20px;
 }
 
-/* --- Section Détails (Droite) --- */
-.profile-info .bottom {
-    flex: 1.5;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.2rem;
-}
-
-.profile-info .bottom p {
+.bottom p {
     font-size: 1rem;
-    color: var(--text-muted);
-    padding: 0.8rem 1rem;
-    background: var(--input-bg);
-    border-radius: var(--radius-md);
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
+    color: var(--text-dark);
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
-.profile-info .bottom p:hover {
-    border-color: var(--accent-color);
-    background: #fff;
-    transform: translateX(5px);
+.bottom p strong {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-right: 15px;
 }
 
-.profile-info .bottom p strong {
-    color: var(--text-main);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* --- Bouton de Modification --- */
+/* --- Bouton Modifier --- */
 .modifbtn {
-    margin-top: 1.5rem;
-    background: var(--accent-color);
+    width: 100%;
+    background-color: var(--primary-color);
     color: white;
+    padding: 14px;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: var(--radius-md);
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 30px;
     transition: all 0.3s ease;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 .modifbtn:hover {
-    background: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-/* --- Responsive Tablette & Mobile --- */
-@media (max-width: 800px) {
-    .profile-info form {
+/* --- Responsivité --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+    
+    .profile-info {
+        padding: 25px;
+    }
+
+    .bottom p {
         flex-direction: column;
-    }
-    
-    .profile-info .img {
-        height: 300px;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .profile-info .bottom {
-        padding: 2rem;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
+        gap: 4px;
     }
 }

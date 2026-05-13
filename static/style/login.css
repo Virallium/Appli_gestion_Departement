@@ -9,7 +9,6 @@
     --dark-color: #343a40;
     --txt-color:#000;
     --borderadius-btn:15px;
-    padding: min(1.5rem,10%);
  }
  *{
     margin: 0;
@@ -20,22 +19,35 @@
     text-decoration: none;
     list-style-type: none;
  }
+ section{
+    padding:2rem 0;
+ }
  
 swiper-container {
       width: 100%;
       height: 100%;
+      position: relative;
     }
 
     swiper-slide {
       background-position: center;
       background-size: cover;
-    }
+      background: #fff;
+      border-radius: 1rem;
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+      -ms-border-radius: 1rem;
+      -o-border-radius: 1rem;
+}
 
     swiper-slide img {
       display: block;
       width: 100%;
       height: 100%;
       aspect-ratio: 1/1;
+      clip-path: circle(87.9% at 50% 0);
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
     }
 header{
     background: var(--light-color);

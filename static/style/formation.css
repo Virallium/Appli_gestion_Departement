@@ -66,6 +66,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0,0,0,0.03);
+    padding:1rem;
 }
 
 .box:hover {

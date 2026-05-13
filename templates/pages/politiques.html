@@ -1,64 +1,246 @@
 {% extends "base.html" %}
 {% load static %}
-{% block csslink %}<link rel="stylesheet" href="{% static 'style/politique.css' %}">{% endblock csslink %}
-{% block title%}Politique{% endblock title %}
-{% block navcontent %}
-    <a href="{% url "login" %}" class="button">Rétour</a>
-{% endblock navcontent %}
-{% block headercontent %}
-    <div class="contents">
-        <h1>Politique de Confidentialité</h1>
-        <h3>Découvrir la politique</h3>
-        <details>
-            <summary>
-                Qu'est-ce que la Politique de Confidentialité et que couvre-t-elle?
-            </summary>
-            <p>
-                <Strong>En théorie</Strong>
-            </p>
-            <ul>
-                <li>La Politique de Confidentialité du Cénacle explique comment nous recueillons, utilisons et partageons vos informations. Elle décrit également la durée de conservation de vos informations et la manière dont nous les protégeons au moment du transfert.</li>
-                <li>La Politique de Confidentialité vous permet également de connaître vos droits.</li>
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi repudiandae sapiente voluptas reiciendis perspiciatis blanditiis earum facere harum. Autem dolorum at voluptatem illo minus, dignissimos quo numquam voluptatibus tempora enim.</li>
-            </ul>
-        </details>
-        <details>
-            <summary>
-                Quelles informations recueillons-nous?
-            </summary>
-            <p><strong>Au sens du terme</strong><br> La présente politique énumère les types d'informations que nou recueillons. Voici certains des plus importants. Nous recueillons:</p>
-            <ul>
-                <li>Les informations que vous nous donner lorsque vous vous enregistrés et entrez votre nom, post-nom, prenom, numéro de telphone, mot de passe, l'adresse mail ou votre adresse.</li>
-                <li>Ces informations proviennent soit des création des comptes par un agent internet ou par sois mêmê</li>
-            </ul>
-        </details>
-        <details>
-            <Summary>
-                Comment partageons-nous vos informations
-            </Summary>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint quasi cupiditate illum? Quidem ducimus voluptatem libero. Fuga nostrum, deserunt autem ex saepe vitae, architecto, quam magni facilis quis minima? Magnam!
-            </p>
-        </details>
-        <details>
-            <Summary>
-                Combien de temps conservons-nous vos informations?
-            </Summary>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur natus veniam ea itaque vero. Repudiandae soluta optio autem vel voluptatem officiis exercitationem facere dolorem et, illo dolore tempora, at enim?</p>
-        </details>
-        <details>
-            <Summary>
-                Comment saurez-vous que la Politique a été modifiée?
-            </Summary>
+{% block title %}Politique de Confidentialité - Le Cénacle{% endblock title %}
+{% block animate %}
+    <link rel="stylesheet" href="{% static 'style/animations.css' %}">
+    <script src="{% static 'js/style.js' %}" defer></script>
+{% endblock animate %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'style/politique_premium.css' %}">{% endblock csslink %}
 
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi consequuntur quidem facere atque perspiciatis quae dolorum nam illum voluptatibus distinctio accusamus, dicta consectetur animi aspernatur neque molestias hic repellendus exercitationem.</p>
-        </details>
+{% block navcontent %}
+    <a href="{% url "login" %}">retour</a>
+{% endblock navcontent %}
+
+{% block headercontent %}
+<div class="politique-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-down">
+        <h1>Politique de Confidentialité</h1>
+        <p>Votre vie privée est notre priorité</p>
     </div>
+</div>
 {% endblock headercontent %}
+
 {% block sections %}
-    <div class="bottomtxt">
-        <h4>Autres politiques</h4>
-        <a href="">Conditions de service</a>
-        <a href="">Politique d'utilisation des cookies</a>
+<section class="politique-container">
+    <div class="politique-wrapper">
+        <!-- Table of Contents -->
+        <aside class="toc" data-aos="fade-right">
+            <h3>Table des matières</h3>
+            <nav>
+                <a href="#def">Définition</a>
+                <a href="#info">Informations recueillies</a>
+                <a href="#usage">Utilisation des données</a>
+                <a href="#partage">Partage des informations</a>
+                <a href="#conservation">Conservation des données</a>
+                <a href="#droits">Vos droits</a>
+                <a href="#contact">Nous contacter</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="politique-content" data-aos="fade-left">
+            <!-- Section 1 -->
+            <article class="politique-section" id="def">
+                <h2>
+                    <i class="fas fa-file-contract"></i>
+                    Qu'est-ce que la Politique de Confidentialité?
+                </h2>
+                <p>La Politique de Confidentialité du Cénacle vous explique comment nous collectons, utilisons, partageons et protégeons vos données personnelles.</p>
+                <p>Cette politique s'applique à l'ensemble de nos services et plateforme. En utilisant nos services, vous acceptez les pratiques décrites ici.</p>
+                
+                <div class="highlight-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Notre engagement</h4>
+                        <p>Nous nous engageons à protéger votre vie privée avec la plus grande transparence et les meilleures pratiques de sécurité.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 2 -->
+            <article class="politique-section" id="info">
+                <h2>
+                    <i class="fas fa-database"></i>
+                    Quelles informations recueillons-nous?
+                </h2>
+                
+                <div class="info-category">
+                    <h3>Informations que vous nous fournissez</h3>
+                    <ul class="info-list">
+                        <li><strong>Informations de compte:</strong> Nom, prénom, post-nom, email, numéro de téléphone</li>
+                        <li><strong>Informations de localisation:</strong> Adresse physique, commune, quartier</li>
+                        <li><strong>Informations de contact:</strong> Messages, demandes d'aide, commentaires</li>
+                        <li><strong>Informations de profil:</strong> Photo de profil, date de naissance</li>
+                    </ul>
+                </div>
+
+                <div class="info-category">
+                    <h3>Informations collectées automatiquement</h3>
+                    <ul class="info-list">
+                        <li><strong>Données de navigateur:</strong> Type de navigateur, adresse IP, pages visitées</li>
+                        <li><strong>Données de session:</strong> Durée de visite, activités sur le site</li>
+                        <li><strong>Cookies:</strong> Pour améliorer votre expérience utilisateur</li>
+                        <li><strong>Données de localisation:</strong> Via les autorisations du navigateur (si consentement)</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 3 -->
+            <article class="politique-section" id="usage">
+                <h2>
+                    <i class="fas fa-cogs"></i>
+                    Comment utilisons-nous vos informations?
+                </h2>
+                
+                <div class="usage-grid">
+                    <div class="usage-card">
+                        <i class="fas fa-user"></i>
+                        <h3>Gestion de compte</h3>
+                        <p>Créer et gérer votre compte, vous envoyer des notifications</p>
+                    </div>
+                    <div class="usage-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Amélioration</h3>
+                        <p>Améliorer nos services et personnaliser votre expérience</p>
+                    </div>
+                    <div class="usage-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Communication</h3>
+                        <p>Vous envoyer des emails sur les formations, activités et mises à jour</p>
+                    </div>
+                    <div class="usage-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Sécurité</h3>
+                        <p>Détecter et prévenir la fraude, les abus et les problèmes de sécurité</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 4 -->
+            <article class="politique-section" id="partage">
+                <h2>
+                    <i class="fas fa-share-alt"></i>
+                    Partage des informations
+                </h2>
+                
+                <p>Nous ne vendons jamais vos données personnelles à des tiers commerciaux.</p>
+                
+                <div class="partage-box">
+                    <h3>Nous partageons vos informations uniquement:</h3>
+                    <ul>
+                        <li>Avec d'autres membres du Cénacle (profil public uniquement)</li>
+                        <li>Avec nos partenaires de confiance pour les services liés (hébergement sécurisé)</li>
+                        <li>Quand la loi l'exige (obligations légales)</li>
+                        <li>Avec votre consentement explicite</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section 5 -->
+            <article class="politique-section" id="conservation">
+                <h2>
+                    <i class="fas fa-hourglass-end"></i>
+                    Durée de conservation
+                </h2>
+                
+                <p>Nous conservons vos données personnelles aussi longtemps que nécessaire pour :</p>
+                
+                <div class="conservation-list">
+                    <div class="conservation-item">
+                        <span class="duration">Tant que votre compte existe</span>
+                        <p>Informations de compte et de profil</p>
+                    </div>
+                    <div class="conservation-item">
+                        <span class="duration">3 ans</span>
+                        <p>Historique des formations et participations</p>
+                    </div>
+                    <div class="conservation-item">
+                        <span class="duration">1 an après suppression</span>
+                        <p>Messages et communications archivées</p>
+                    </div>
+                    <div class="conservation-item">
+                        <span class="duration">Selon la loi</span>
+                        <p>Données fiscales et administratives</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;"><strong>Note:</strong> Vous pouvez demander la suppression de votre compte à tout moment, ce qui entraînera la suppression de la plupart de vos données personnelles dans les 30 jours.</p>
+            </article>
+
+            <!-- Section 6 -->
+            <article class="politique-section" id="droits">
+                <h2>
+                    <i class="fas fa-user-check"></i>
+                    Vos droits
+                </h2>
+                
+                <p>Vous avez les droits suivants concernant vos données personnelles:</p>
+                
+                <div class="droits-grid">
+                    <div class="droit-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Droit d'accès</h3>
+                        <p>Accéder à toutes vos données personnelles à tout moment</p>
+                    </div>
+                    <div class="droit-card">
+                        <i class="fas fa-edit"></i>
+                        <h3>Droit de rectification</h3>
+                        <p>Corriger vos informations incorrectes ou incomplètes</p>
+                    </div>
+                    <div class="droit-card">
+                        <i class="fas fa-trash"></i>
+                        <h3>Droit à l'oubli</h3>
+                        <p>Demander la suppression de vos données</p>
+                    </div>
+                    <div class="droit-card">
+                        <i class="fas fa-ban"></i>
+                        <h3>Droit d'opposition</h3>
+                        <p>Vous opposer au traitement de vos données</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 7 -->
+            <article class="politique-section" id="contact">
+                <h2>
+                    <i class="fas fa-envelope-open"></i>
+                    Nous contacter
+                </h2>
+                
+                <p>Si vous avez des questions sur cette politique ou vos données personnelles:</p>
+                
+                <div class="contact-box">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>privacy@lecenacle.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+243 81 000 000 00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Rond Point Huilerie, Kinshasa, RDC</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Dernière mise à jour -->
+            <div class="last-updated">
+                <p><strong>Dernière mise à jour:</strong> Mai 2026</p>
+                <p>Cette politique peut être modifiée à tout moment. Nous vous encourageons à la consulter régulièrement.</p>
+            </div>
+        </main>
     </div>
+</section>
 {% endblock sections %}

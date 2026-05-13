@@ -62,9 +62,7 @@
 </head>
 <body>
     <main>
-        <div class="load_anim">
-            <div class="circle"></div>
-        </div>
+        
             <div class="rgba"></div>
             <header>
                 <a href="{% url "Accueil" %}"><div class="logo"><img src="{% static 'photos/logo.jpg' %}" alt="logo du département" width="100px"></div></a>
@@ -76,11 +74,11 @@
                             <li><a href="{% url "voirplus" %}">Activités</a></li>
                             <li><a href="{% url "Contact" %}">Contact</a></li>
                             <li><a href="{% url "profil" %}">Profil</a></li>
-                            <form method="POST" action="{% url "logout" %}">
-                                {% csrf_token %}
-                                <button type="submit" class="button">Déconnexion</button>
-                            </form>
                         </ul>
+                        <form method="POST" action="{% url "logout" %}">
+                            {% csrf_token %}
+                            <button type="submit" class="button">Déconnexion</button>
+                        </form>
                     <i class="fa-solid fa-bars" id="menu"></i>
                     {% endblock navcontent %}
                 </nav>
