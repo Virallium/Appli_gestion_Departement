@@ -136,28 +136,6 @@ def accueil_view(request):
 def Communaute(request):
     return render(request,'pages/Communaute.html')
 
-def Contact(request):
-    if request.method == 'POST':
-        nom = request.POST.get('name')
-        telephone = request.POST.get('num')
-        email = request.POST.get('mail')
-        adresse = request.POST.get('Ad')
-        message = request.POST.get('message')
-        
-        # Créer et sauvegarder le message en base de données
-        Messages.objects.create(
-            nom=nom,
-            telephone=telephone,
-            email=email,
-            adresse=adresse,
-            message=message
-        )
-        
-        # Redirection ou message de succès
-        messages.success(request, 'Votre message a été envoyé avec succès!')
-        return redirect('Contact')
-    
-    return render(request,'pages/Contact.html')
 
 def Politiques(request):
     return render(request,'pages/politiques.html')

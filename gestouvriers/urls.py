@@ -11,7 +11,6 @@ urlpatterns = [
     path('Activites_Admin/',views.admin_activites, name="admin_activites"),
     path('Versets biblique/',views.admin_versets, name="admin_versets"),
     path('Accueil', views.accueil_view, name='Accueil'),
-    path('Contact/', views.Contact, name='Contact'),
     path('Politiques/',views.Politiques, name='Politiques' ),
     path('Aide/', views.aide, name='Aide'),
 ]
