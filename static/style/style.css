@@ -46,7 +46,9 @@
 
 /* --- HERO SECTION (PRES) --- */
 .contents {
-    padding: clamp(60px, 15vw, 100px) 5% 2rem 5%; /* Adaptatif selon écran */
+    width: 100%;
+    padding-top: clamp(60px, 15vw, 100px);
+    padding-bottom: 2rem;
 }
 
 .pres {

@@ -3,9 +3,10 @@
 {% block title%}Communauté{% endblock title %}
 {% block csslink %}<link rel="stylesheet" href="{% static 'style/communaute.css' %}">{% endblock csslink %}
 {% block animate %}
-        <link rel="stylesheet" href="{% static 'style/animations.css' %}">
         <script src="{% static 'js/style.js' %}" defer></script>
 {% endblock animate %}
+
+
 {% block navcontent %}
     <ul>
         <li><a href="{% url "Accueil" %}" class="">Accueil</a></li>
