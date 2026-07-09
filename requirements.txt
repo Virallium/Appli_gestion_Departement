@@ -15,6 +15,7 @@ deprecation==2.1.0
 dj-database-url==3.1.2
 Django==6.0.3
 django-storage-supabase==0.1.0
+dotenv==0.9.9
 folium==0.20.0
 gotrue==0.2.0
 gunicorn==25.3.0

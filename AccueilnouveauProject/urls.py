@@ -19,12 +19,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import supabase_health_check
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('AuthentificationApp.urls')),
     path('',include('gestouvriers.urls')),
+    path('api/health/', supabase_health_check, name='supabase_health'),
 ]
 
 if settings.DEBUG:
