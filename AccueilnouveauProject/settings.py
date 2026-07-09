@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
-from dotenv import load_env
+from dotenv import load_dotenv
 load_env()
 
 
