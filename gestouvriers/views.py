@@ -4,11 +4,14 @@ from django.contrib.auth import authenticate, login
 from .models import Activites, Membres, versets, Messages
 from .form import CustomMembers, CustomActivities, CustomVersets, loginAdmin,ChangePassword
 import folium
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def activite(request):
     activite_list=Activites.objects.all()
     return render(request, 'pages/voirplus.html',{'activites':activite_list})
 
+@login_required
 def membre(request):
     membre_list=Membres.objects.all()
     verset=versets.objects.all()
@@ -21,6 +24,7 @@ def membre(request):
         'map_html': map_html
     })
 
+@login_required
 def admin(request):
     activites=Activites.objects.all()
     membres=Membres.objects.all()
@@ -49,7 +53,7 @@ def connexionadmin(request):
     return render(request,'admin/auth/connection.html',{
         'form': form
     })
-
+@login_required
 def changempass(request):
     # 1. On récupère l'instance de l'utilisateur (User) lié à l'Admin connecté
     # On suppose que l'utilisateur est connecté
@@ -73,6 +77,7 @@ def changempass(request):
         form = ChangePassword(instance=user_instance)
     return render(request, 'admin/auth/changempass.html', {'form': form})
 
+@login_required
 def admin_membres(request):
     if request.method=="POST":
         form=CustomMembers(request.POST, request.FILES)
@@ -82,6 +87,8 @@ def admin_membres(request):
             return redirect('admin_membres')
     else:
         form=CustomMembers()
+
+@login_required
 def admin_aff_membres(request):
     activites=Activites.objects.all()
     membres=Membres.objects.all()
@@ -92,6 +99,8 @@ def admin_aff_membres(request):
         'Versets':verset_bibl
     })
 
+    
+@login_required
 def admin_activites(request):
     if request.method=="POST":
         form=CustomActivities(request.POST,request.FILES)
@@ -108,7 +117,7 @@ def admin_activites(request):
         'Versets':verset_bibl,
         'form':form
     })  
- 
+@login_required
 def admin_versets(request):
     if request.method == "POST":
         form=CustomVersets(request.POST)
@@ -127,12 +136,13 @@ def admin_versets(request):
         'Versets':verset_bibl,
         'form':form
     })    
+@login_required
 def accueil_view(request):
     activites=Activites.objects.all()
     return render(request, 'pages/index.html',{
         'activite':activites
     })
-
+@login_required
 def Communaute(request):
     return render(request,'pages/Communaute.html')
 
