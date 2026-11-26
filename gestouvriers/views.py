@@ -136,7 +136,7 @@ def admin_versets(request):
         'Versets':verset_bibl,
         'form':form
     })    
-@login_required
+
 def accueil_view(request):
     activites=Activites.objects.all()
     return render(request, 'pages/index.html',{
