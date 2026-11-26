@@ -1,28 +1,62 @@
-body{
-    overflow-x: hidden;
-    color: var(--txt-color);
-    width: 100%;
+/* ==========================================================
+   CÉNACLE · track.css
+   Barre de défilement, sélection et finitions globales.
+   Utilise les variables définies dans style.css
+   (indigo profond + or chaud sur fond ivoire).
+   ========================================================== */
+
+/* ---------- Base ---------- */
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--txt-color);
 }
-body::-webkit-scrollbar{
-   width: 8px;
+
+/* ---------- Barre de défilement (Chrome, Edge, Safari) ---------- */
+body::-webkit-scrollbar {
+  width: 10px;
 }
-body::-webkit-scrollbar-thumb{
-   background: var(--primary-color);
-   border-radius: 10%;
-   -webkit-border-radius: 10%;
-   -moz-border-radius: 10%;
-   -ms-border-radius: 10%;
-   -o-border-radius: 10%;
-   transition: .9s;
-   -webkit-transition: .9s;
-   -moz-transition: .9s;
-   -ms-transition: .9s;
-   -o-transition: .9s;
-   cursor: pointer;
+
+body::-webkit-scrollbar-track {
+  background: var(--surface-2);
+  border-left: 1px solid var(--border);
 }
-body::-webkit-scrollbar-thumb:hover{
-   background: var(--info-color);
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-500), var(--primary-900));
+  border-radius: 999px;
+  border: 2px solid var(--surface-2);   /* effet « flottant » */
+  cursor: pointer;
+  transition: var(--transition);
 }
-body::-webkit-scrollbar-track{
-   background: var(--light-color);
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--gold-300), var(--gold-500));
+}
+
+/* ---------- Barre de défilement (Firefox) ---------- */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-600) var(--surface-2);
+  }
+}
+
+/* ---------- Sélection de texte ---------- */
+::selection {
+  background: var(--gold-300);
+  color: var(--primary-900);
+}
+
+::-moz-selection {
+  background: var(--gold-300);
+  color: var(--primary-900);
+}
+
+/* ---------- Mobile : barre plus discrète ---------- */
+@media (max-width: 768px) {
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
 }

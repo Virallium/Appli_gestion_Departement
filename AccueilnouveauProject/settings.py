@@ -87,19 +87,7 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_HOST = os.getenv('DB_HOST')
 DB_PORT = os.getenv('DB_PORT')
 
-if DB_NAME and DB_USER and DB_PASSWORD and DB_HOST:
-    # Connexion Production (Supabase)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': DB_NAME,
-            'USER': DB_USER,
-            'PASSWORD': DB_PASSWORD,
-            'HOST': DB_HOST,
-            'PORT': DB_PORT or '5432',
-        }
-    }
-else:
+if DEBUG:
     # Connexion Locale (Fichier de test)
     DATABASES = {
         'default': {
@@ -107,6 +95,19 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+else:
+    # Connexion Production (Supabase)
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': DB_NAME,
+                'USER': DB_USER,
+                'PASSWORD': DB_PASSWORD,
+                'HOST': DB_HOST,
+                'PORT': DB_PORT or '5432',
+            }
+        }
+    
 
 
 # Password validation

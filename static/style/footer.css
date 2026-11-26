@@ -1,126 +1,159 @@
-  :root{
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
-    --light-color: #f8f9fa;
-    --txt-primary-:#fff;
-    --dark-color: #343a40;
-    --txt-color:#000;
-    --borderadius-btn:15px;
- }
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    outline: none;
-    text-decoration: none;
-    list-style-type: none;
- }
- html {
-    width:100%;
-    height: 100%;
- }
+/* ==========================================================
+   footer.css : pied de page commun à toutes les pages
+   Thème : dégradé indigo + or. Les couleurs sont définies sur
+   `footer` lui-même, donc ce fichier fonctionne sur toutes les
+   pages, même celles qui n'ont pas chargé style.css.
+   ========================================================== */
 
+/* Variables et réinitialisation d'origine, conservées telles
+   quelles : d'autres pages de ton site peuvent en dépendre. */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --txt-primary-: #fff;
+  --dark-color: #343a40;
+  --txt-color: #000;
+  --borderadius-btn: 15px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+html { width: 100%; height: 100%; }
+
+/* ---------- Pied de page ---------- */
 footer {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    background-color: var(--dark-color);
-    color: var(--txt-primary-);
-    margin-top: 50px;
-    padding: 60px 1.5rem;
-    box-sizing: border-box;
+  --ft-indigo-700: #242a78;
+  --ft-indigo-900: #151a4a;
+  --ft-gold-300: #ecd08a;
+  --ft-gold-500: #d4a64a;
+
+  position: relative;
+  width: 100%;                       /* plus de width:100vw ni de margin-left négatif */
+  margin-top: 4rem;
+  padding: 4rem clamp(1rem, 4vw, 3rem) 1.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(212, 166, 74, .2), transparent 45%),
+    linear-gradient(135deg, var(--ft-indigo-700), var(--ft-indigo-900));
+  color: rgba(255, 255, 255, .85);
+}
+
+/* fine ligne dorée en haut */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ft-gold-500), var(--ft-gold-300), var(--ft-gold-500));
 }
 
 .footer-content {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    width: 100%;
-    gap: 40px;
-    place-items: center;
-
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
 }
 
 /* Titres */
 footer h3 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  position: relative;
+  margin-bottom: 1.6rem;
+  padding-bottom: .8rem;
+  color: var(--ft-gold-300);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+footer h3::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 36px; height: 3px;
+  border-radius: 3px;
+  background: var(--ft-gold-500);
 }
 
-/* Infos de Contact */
+/* Infos de contact */
 .contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 1.2rem;
-    color: #bbb;
-    line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  margin-bottom: 1.1rem;
+  color: rgba(255, 255, 255, .78);
+  line-height: 1.55;
+  font-size: .95rem;
 }
-
 .contact-info i {
-    color: var(--warning-color);
-    font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 20px;
+  margin-top: .25rem;
+  color: var(--ft-gold-500);
+  font-size: 1.05rem;
+  text-align: center;
 }
 
-/* Section Créateurs (Boosted by) */
+/* Créateurs (« Boosted by ») */
 .created {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
 .created a {
-    color: var(--txt-primary-);
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    transition: 0.3s;
+  margin-bottom: 1rem;
+  padding-bottom: .15rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-bottom: 2px solid transparent;
+  transition: .3s;
 }
-
-.created a:hover {
-    color: var(--primary-color);
-}
-
+.created a:hover { color: var(--ft-gold-300); border-color: var(--ft-gold-500); }
 
 .created .div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    border: none; 
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  padding: 0;
+  border: none;
 }
-
 .created .div p {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: var(--secondary-color);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: .35rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(212, 166, 74, .35);
+  color: rgba(255, 255, 255, .8);
+  font-size: .82rem;
+  transition: all .3s;
 }
-.created .div p:hover{
-   transition: all .3s;
-   color: var(--light-color);
-   -webkit-transition: all .3s;
-   -moz-transition: all .3s;
-   -ms-transition: all .3s;
-   -o-transition: all .3s;
+.created .div p:hover {
+  color: var(--ft-indigo-900);
+  background: var(--ft-gold-300);
+  border-color: var(--ft-gold-300);
 }
 
-/* Copyright Bar */
+/* Barre de copyright */
 footer::after {
-    content: "© 2026 Cénacle - All Rights Reserved";
-    display: block;
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.75rem;
-    color: var(--secondary-color);
+  content: "© 2026 Cénacle · Tous droits réservés";
+  display: block;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  text-align: center;
+  font-size: .78rem;
+  color: rgba(255, 255, 255, .55);
 }

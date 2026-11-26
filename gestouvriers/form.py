@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class CustomMembers(forms.ModelForm):
     class Meta:
         model= Membres
-        fields=['statut','nom_membre','prenom_membre','postnom_membre','datenais','numtel','adresse','photo']
+        fields=['statut','nom_membre','prenom_membre','postnom_membre','photo']
 
 class CustomActivities(forms.ModelForm):
     class Meta:
@@ -38,9 +38,9 @@ class ChangePassword(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Messages
-        fields = ['nom', 'telephone', 'email', 'adresse', 'message']
+        fields = ['user', 'telephone', 'email', 'adresse', 'message']
         labels = {
-            'nom': 'Nom & Post-nom',
+            'user': 'user',
             'telephone': 'Téléphone',
             'email': 'Email',
             'adresse': 'Adresse physique',

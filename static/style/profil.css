@@ -1,118 +1,307 @@
-/* --- Variables & Base --- */
+/* ==========================================================
+   CÉNACLE · profil.css  (v2)
+   Page « Mon Profil » – indigo profond + or chaud / ivoire.
+   Autonome : variables et reset inclus, aucun theme.css requis.
+   Fonctionne avec ton HTML tel quel (p > strong) : les icônes sont
+   ajoutées en CSS (Font Awesome 6/7 déjà chargé dans base.html).
+   ========================================================== */
+
+/* ---------- 1. Variables ---------- */
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg-body: #f1f5f9;
-    --card-white: #ffffff;
-    --text-dark: #1e293b;
-    --text-light: #64748b;
-    --border-radius: 12px;
-    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --primary-color: #2f3597;
+  --secondary-color: #6b6f8a;
+  --light-color: #faf7f2;
+  --dark-color: #151a4a;
+
+  --primary-50: #eef0ff;
+  --primary-100: #dfe3ff;
+  --primary-500: #3d44b8;
+  --primary-600: #2f3597;
+  --primary-700: #242a78;
+  --primary-900: #151a4a;
+  --gold-300: #ecd08a;
+  --gold-500: #d4a64a;
+  --gold-600: #b98a30;
+  --gold-700: #8a6420;
+
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --surface-2: #f4f0e8;
+  --border: #e8e2d6;
+  --ink: #1f2340;
+  --muted: #6b6f8a;
+
+  --ease: cubic-bezier(.22, .8, .24, 1);
+  --maxw: 960px;
 }
-body{
-    overflow-x:hidden;
+
+/* ---------- 2. Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style-type: none;
 }
+:focus-visible {
+  outline: 3px solid var(--gold-500);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+body {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(212, 166, 74, .14), transparent 38%),
+    radial-gradient(circle at 100% 45%, rgba(61, 68, 184, .09), transparent 42%),
+    radial-gradient(circle at 0% 95%, rgba(212, 166, 74, .10), transparent 40%),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+/* ---------- 3. Keyframes ---------- */
+@keyframes rise  { from { opacity: 0; translate: 0 28px; } }
+@keyframes spin  { to { rotate: 360deg; } }
+@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+
+/* ---------- 4. Conteneur & titre ---------- */
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
+  --cut: 34px;
+  --hex: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 6.5rem clamp(1rem, 3vw, 2rem) 4rem;   /* place pour l'en-tête fixe */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .container h1 {
-    margin-top: 4rem;
-    font-size: 2rem;
-    color: var(--text-dark);
-    margin-bottom: 30px;
-    font-weight: 700;
+  position: relative;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--primary-900);
+  animation: rise .8s var(--ease) backwards;
+}
+.container h1::before {                   /* sur-titre */
+  content: "✦  Espace membre";
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+}
+.container h1::after {                    /* filet doré */
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  translate: -50% 0;
+  width: 72px; height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
 }
 
-/* --- Profile Card --- */
+/* ---------- 5. Carte ---------- */
 .profile-info {
-    background: var(--card-white);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+  width: 100%;
+  filter: drop-shadow(0 24px 40px rgba(31, 35, 64, .16));   /* l'ombre suit la forme découpée */
+  animation: rise .9s var(--ease) .15s backwards;
+}
+.profile-info > form {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  overflow: hidden;
+  background: var(--surface);
+  -webkit-clip-path: polygon(
+    var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)
+  );
+  clip-path: polygon(
+    var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)
+  );
 }
 
-.profile-info:hover {
-    transform: translateY(-5px);
-}
-
-/* --- Photo de profil --- */
+/* ---------- 6. Colonne photo ---------- */
 .profile-info .img {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #fff;
-    outline: 2px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(212, 166, 74, .38), transparent 50%),
+    linear-gradient(160deg, var(--primary-700), var(--primary-900));
 }
-
+.profile-info .img::after {               /* croix en filigrane */
+  content: "✝";
+  position: absolute;
+  z-index: -1;
+  right: -1rem; bottom: -2rem;
+  font-size: 10rem;
+  line-height: 1;
+  color: var(--gold-300);
+  opacity: .08;
+  animation: float 8s ease-in-out infinite;
+}
+.profile-info .img::before {              /* anneau doré tournant derrière l'avatar */
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 224px; height: 224px;
+  -webkit-clip-path: var(--hex);
+  clip-path: var(--hex);
+  background: conic-gradient(from 0deg, var(--gold-500), var(--gold-300), var(--primary-500), var(--gold-500));
+  animation: spin 14s linear infinite;
+  transition: scale .6s var(--ease);
+}
 .profile-info .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: relative;
+  z-index: 1;
+  width: 208px;                            /* l'attribut width="100%" du HTML ne gagne pas */
+  height: 208px;
+  object-fit: cover;
+  -webkit-clip-path: var(--hex);
+  clip-path: var(--hex);
+  background: var(--primary-100);
+  transition: scale .6s var(--ease);
 }
 
-/* --- Détails (Textes) --- */
-.bottom {
-    text-align: left;
-    margin-top: 20px;
+/* ---------- 7. Colonne informations ---------- */
+.profile-info .bottom {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.bottom p {
-    font-size: 1rem;
-    color: var(--text-dark);
-    padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.profile-info .bottom p {
+  position: relative;
+  min-height: 64px;
+  padding: .9rem 0 .9rem 4rem;
+  border-bottom: 1px dashed var(--border);
+  font-weight: 500;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  transition: translate .5s var(--ease);
+  animation: rise .7s var(--ease) backwards;
+}
+.profile-info .bottom p strong {          /* le « label : » devient une étiquette */
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-700);
 }
 
-.bottom p strong {
-    color: var(--text-light);
-    font-weight: 500;
-    margin-right: 15px;
+/* Icône hexagonale de chaque ligne (ajoutée en CSS) */
+.profile-info .bottom p::before {
+  content: "\f007";
+  position: absolute;
+  left: 0; top: 50%;
+  translate: 0 -50%;
+  width: 50px; height: 50px;
+  display: grid; place-items: center;
+  -webkit-clip-path: var(--hex);
+  clip-path: var(--hex);
+  background: var(--primary-50);
+  color: var(--primary-600);
+  font-family: "Font Awesome 7 Free", "Font Awesome 6 Free", "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.05rem;
+  transition: background-color .4s, color .4s;
 }
+.profile-info .bottom p:nth-child(2)::before { content: "\f0e0"; }   /* email */
+.profile-info .bottom p:nth-child(3)::before { content: "\f2c2"; }   /* postnom */
+.profile-info .bottom p:nth-child(4)::before { content: "\f1fd"; }   /* naissance */
+.profile-info .bottom p:nth-child(5)::before { content: "\f095"; }   /* téléphone */
 
-/* --- Bouton Modifier --- */
+.profile-info .bottom p:nth-child(1) { animation-delay: .30s; }
+.profile-info .bottom p:nth-child(2) { animation-delay: .38s; }
+.profile-info .bottom p:nth-child(3) { animation-delay: .46s; }
+.profile-info .bottom p:nth-child(4) { animation-delay: .54s; }
+.profile-info .bottom p:nth-child(5) { animation-delay: .62s; }
+
+/* ---------- 8. Bouton Modifier (button ou lien) ---------- */
 .modifbtn {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 30px;
-    transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  margin-top: 1.6rem;
+  padding: .85rem 1.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  box-shadow: 0 10px 24px rgba(212, 166, 74, .45);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-900);
+  cursor: pointer;
+  transition: translate .4s var(--ease), box-shadow .4s;
+  animation: rise .7s var(--ease) .72s backwards;
+}
+.modifbtn::before {                       /* icône crayon */
+  content: "\f304";
+  font-family: "Font Awesome 7 Free", "Font Awesome 6 Free", "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.modifbtn::after {                        /* reflet au survol */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .6) 50%, transparent 70%);
+  translate: -120% 0;
+  transition: translate .8s var(--ease);
+}
+.modifbtn:active { translate: 0 0; }
+
+/* ---------- 9. Survols (souris uniquement) ---------- */
+@media (hover: hover) {
+  .profile-info:hover .img img,
+  .profile-info:hover .img::before { scale: 1.05; }
+
+  .profile-info .bottom p:hover { translate: 8px 0; }
+  .profile-info .bottom p:hover::before {
+    background: var(--primary-600);
+    color: var(--gold-300);
+  }
+  .modifbtn:hover {
+    translate: 0 -3px;
+    box-shadow: 0 16px 32px rgba(212, 166, 74, .55);
+  }
+  .modifbtn:hover::after { translate: 120% 0; }
 }
 
-.modifbtn:hover {
-    background-color: var(--primary-hover);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+/* ---------- 10. Responsive ---------- */
+@media (max-width: 768px) {
+  .container { --cut: 26px; }
+  .profile-info > form { grid-template-columns: 1fr; }
+  .profile-info .img { padding: 2.5rem 1.5rem; }
+  .profile-info .img::before { width: 184px; height: 184px; }
+  .profile-info .img img { width: 168px; height: 168px; }
 }
-
-/* --- Responsivité --- */
 @media (max-width: 480px) {
-    .container {
-        padding: 10px;
-        margin: 20px auto;
-    }
-    
-    .profile-info {
-        padding: 25px;
-    }
+  .container { --cut: 20px; }
+  .modifbtn { align-self: stretch; }
+}
 
-    .bottom p {
-        flex-direction: column;
-        gap: 4px;
-    }
+/* ---------- 11. Mouvement réduit ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
 }

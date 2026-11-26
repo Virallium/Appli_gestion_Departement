@@ -10,7 +10,7 @@ urlpatterns = [
     path('Membres enregistres/',views.admin_aff_membres, name="admin_membres"),
     path('Activites_Admin/',views.admin_activites, name="admin_activites"),
     path('Versets biblique/',views.admin_versets, name="admin_versets"),
-    path('Accueil', views.accueil_view, name='Accueil'),
+    path('', views.accueil_view, name='Accueil'),
     path('Politiques/',views.Politiques, name='Politiques' ),
     path('Aide/', views.aide, name='Aide'),
 ]
